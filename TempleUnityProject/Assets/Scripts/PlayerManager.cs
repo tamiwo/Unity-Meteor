@@ -39,15 +39,7 @@ public class PlayerManager : MonoBehaviour {
 			goJump = true;
 		}
 	}
-
-	//衝突処理
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Trap") {
-			gameManager.GetComponent<GameManager> ().GameOver ();
-			DestroyPlayer ();
-		}
-	}
-
+		
 	//プレイヤーオブジェクト削除処理
 	void DestroyPlayer(){
 		Destroy (this.gameObject);
