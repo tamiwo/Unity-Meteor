@@ -1,10 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 using TouchScript.Gestures;
 
 public class TouchManager : MonoBehaviour {
+
+    //イベント関数
+    [SerializeField]
+    private UnityEvent swipeUp;
+    [SerializeField]
+    private UnityEvent swipeDown;
+    [SerializeField]
+    private UnityEvent swipeRight;
+    [SerializeField]
+    private UnityEvent swipeLeft;
 
     private void OnEnable()
     {
@@ -28,10 +39,12 @@ public class TouchManager : MonoBehaviour {
             if( flickVector.y >= 0 ) //上
             {
                 Debug.Log("swipe up");
+                swipeUp.Invoke();
             }
             else //下
             {
                 Debug.Log("swipe down");
+                swipeDown.Invoke();
             }
         }
         else //横方向
@@ -39,10 +52,12 @@ public class TouchManager : MonoBehaviour {
             if( flickVector.x >= 0 ) //右
             {
                 Debug.Log("swipe right");
+                swipeRight.Invoke();
             }
             else //左
             {
                 Debug.Log("swipe left");
+                swipeLeft.Invoke();
             }
         }
     }
