@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour {
     public GameObject canvasGame;
     public GameObject textScore;
 
+    //設定値
+    public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
+
     //メンバ変数
     private int score = 0;
     private int nextScore = 100;
@@ -34,7 +37,7 @@ public class GameManager : MonoBehaviour {
     public void CreateOrb () {
         GameObject orb = (GameObject)Instantiate(orbPrefab);
         orb.transform.SetParent(canvasGame.transform, false);
-        orb.transform.localPosition = new Vector3(0f,800.0f,0f);
+        orb.transform.localPosition = createPosition;
     }
 
     //オーブ入手
