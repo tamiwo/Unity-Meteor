@@ -21,9 +21,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //初期オーブ生成
-        for (int i = 0; i < MAX_ORB; i++){
-            CreateOrb();
-        }
+        CreateOrb();
         RefreshScoreText();
 	}
 	
@@ -36,10 +34,7 @@ public class GameManager : MonoBehaviour {
     public void CreateOrb () {
         GameObject orb = (GameObject)Instantiate(orbPrefab);
         orb.transform.SetParent(canvasGame.transform, false);
-        orb.transform.localPosition = new Vector3(
-            UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(-140.0f, -500.0f),
-            0f);
+        orb.transform.localPosition = new Vector3(0f,800.0f,0f);
     }
 
     //オーブ入手

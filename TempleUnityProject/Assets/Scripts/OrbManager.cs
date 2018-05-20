@@ -25,6 +25,7 @@ public class OrbManager : MonoBehaviour {
         }
 
         gameManager.GetComponent<GameManager>().GetOrb();
+        gameManager.GetComponent<GameManager>().CreateOrb();
         Destroy(this.gameObject);
     } 
 }
