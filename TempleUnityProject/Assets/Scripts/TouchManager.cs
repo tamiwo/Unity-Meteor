@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
 using TouchScript.Gestures;
+using TouchScript.Hit;
 
 public class TouchManager : MonoBehaviour {
 
@@ -16,14 +16,25 @@ public class TouchManager : MonoBehaviour {
     private UnityEvent swipeRight;
     [SerializeField]
     private UnityEvent swipeLeft;
+    [SerializeField]
+    private UnityEvent tap;
 
     private void OnEnable()
     {
         GetComponent<FlickGesture>().Flicked += OnFlick;
+        GetComponent<TapGesture>().Tapped += OnTap;
     }
     private void OnDisable()
     {
         GetComponent<FlickGesture>().Flicked -= OnFlick;
+        GetComponent<TapGesture>().Tapped -= OnTap;
+    }
+
+    // タップ時に呼ばれるメソッド
+    private void OnTap(object sender, System.EventArgs e)
+    {
+        Debug.Log("tap");
+        tap.Invoke();
     }
 
     // フリックジェスチャーが成功すると呼ばれるメソッド
@@ -32,8 +43,8 @@ public class TouchManager : MonoBehaviour {
         var gesture = sender as FlickGesture;
         var flickVector = gesture.ScreenFlickVector;
 
-        string str = "フリック: " + gesture.ScreenFlickVector + " (" + gesture.ScreenFlickTime + "秒)";
-        Debug.Log(str);
+        //string str = "フリック: " + gesture.ScreenFlickVector + " (" + gesture.ScreenFlickTime + "秒)";
+        //Debug.Log(str);
         if ( Mathf.Abs(flickVector.y) >= Mathf.Abs(flickVector.x) ) //縦方向
         {
             if( flickVector.y >= 0 ) //上
