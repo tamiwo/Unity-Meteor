@@ -19,7 +19,7 @@ public class OrbManager : MonoBehaviour {
 
     //オーブ取得
     public void TouchOrb () {
-        Debug.Log("touch the orb.");
+        //Debug.Log("touch the orb.");
         if (Input.GetMouseButton (0) == false ){
             return;
         }
