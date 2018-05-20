@@ -143,6 +143,7 @@ MonoBehaviour:
   orbPrefab: {fileID: 1684186580051186, guid: 4272711d560dd4ce38ed6df25676c144, type: 2}
   canvasGame: {fileID: 1122636940}
   textScore: {fileID: 1700544525}
+  createPosition: {x: 0, y: 800, z: 0}
 --- !u!4 &182578658
 Transform:
   m_ObjectHideFlags: 0
@@ -374,7 +375,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: 0, y: 0.98}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
