@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{55457A22-CE03-0609-8477-F84A9E3ADD29}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OrbManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameManager.cs" Line="44" Column="5" />
+      <File FileName="Assets/Scripts/OrbManager.cs" Line="18" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
