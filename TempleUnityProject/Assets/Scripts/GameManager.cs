@@ -21,9 +21,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //初期オーブ生成
-        for (int i = 0; i < MAX_ORB; i++){
-            CreateOrb();
-        }
+        CreateOrb();
         RefreshScoreText();
 	}
 	
