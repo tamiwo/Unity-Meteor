@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
+	public GameObject gameManager;				//ゲームマネージャー
 	public LayerMask GroundLayer;				//グラウンドレイヤー
 	private Rigidbody2D rbody;					//プレイヤー制御用
 	private float jumpPower = 400;				//ジャンプ力
@@ -37,5 +38,18 @@ public class PlayerManager : MonoBehaviour {
 		if (canJump) {
 			goJump = true;
 		}
+	}
+
+	//衝突処理
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Trap") {
+			gameManager.GetComponent<GameManager> ().GameOver ();
+			DestroyPlayer ();
+		}
+	}
+
+	//プレイヤーオブジェクト削除処理
+	void DestroyPlayer(){
+		Destroy (this.gameObject);
 	}
 }

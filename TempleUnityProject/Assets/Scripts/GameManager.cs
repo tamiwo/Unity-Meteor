@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
+	public GameObject textGameOver;				//ゲームオーバーテキスト
+	public GameObject buttons;					//操作ボタン
 
     //定数定義
     private const int MAX_ORB = 10;
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour {
         score += 1;
         RefreshScoreText();
     }
+
+	public void GameOver(){
+		textGameOver.SetActive (true);
+		buttons.SetActive (false);
+	}
 
     //スコアてきすと更新
     void RefreshScoreText (){
