@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{55457A22-CE03-0609-8477-F84A9E3ADD29}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OrbManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TouchManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="44" Column="5" />
-      <File FileName="Assets/Scripts/OrbManager.cs" Line="18" Column="5" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/OrbManager.cs" Line="22" Column="11" />
+      <File FileName="Assets/Scripts/TouchManager.cs" Line="11" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
