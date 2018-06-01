@@ -10,13 +10,21 @@ public class TouchManager : MonoBehaviour {
 
     //イベント関数
     [SerializeField]
-    private UnityEvent swipeUp;
+    private UnityEvent swipeUpStart;
     [SerializeField]
-    private UnityEvent swipeDown;
+    private UnityEvent swipeUpEnd;
     [SerializeField]
-    private UnityEvent swipeRight;
+    private UnityEvent swipeDownStart;
     [SerializeField]
-    private UnityEvent swipeLeft;
+    private UnityEvent swipeDownEnd;
+    [SerializeField]
+    private UnityEvent swipeRightStart;
+    [SerializeField]
+    private UnityEvent swipeRightEnd;
+    [SerializeField]
+    private UnityEvent swipeLeftStart;
+    [SerializeField]
+    private UnityEvent swipeLeftEnd;
     [SerializeField]
     private UnityEvent tap;
 
@@ -25,7 +33,8 @@ public class TouchManager : MonoBehaviour {
 
 
     private Vector2 _touchStartPoint;   //タッチ開始位置
-    enum Direction { UP, DOWN, RIGHT, LEFT };
+    enum Direction { NONE, UP, DOWN, RIGHT, LEFT };
+    private Direction _swipeDir;
 
     private void OnEnable()
     {
@@ -67,13 +76,7 @@ public class TouchManager : MonoBehaviour {
         var touchPoint = gesture.ScreenPosition;
         //開始位置からの移動量をだす
         var moveVector = touchPoint - _touchStartPoint;
-
-        // 移動量が一定以上でなければスワイプ判定せずに抜ける
-        if ( ( moveVector.x < minimumDistance ) && 
-             ( moveVector.y < minimumDistance ) ){
-            return;
-        }
-
+        
         // スワイプ方向判定
         Direction dir = Vec2Dirction(moveVector);
         Debug.Log("Swipe " + moveVector + " (" + dir + ")");
@@ -85,6 +88,8 @@ public class TouchManager : MonoBehaviour {
             case Direction.RIGHT:
                 break;
             case Direction.LEFT:
+                break;
+            case Direction.NONE:
                 break;
         }
     }
@@ -111,22 +116,34 @@ public class TouchManager : MonoBehaviour {
         switch (dir)
         {
             case Direction.UP:
-                swipeUp.Invoke();
+                swipeUpEnd.Invoke();
                 break;
             case Direction.DOWN:
-                swipeDown.Invoke();
+                swipeDownEnd.Invoke();
                 break;
             case Direction.RIGHT:
-                swipeRight.Invoke();
+                swipeRightEnd.Invoke();
                 break;
             case Direction.LEFT:
-                swipeLeft.Invoke();
+                swipeLeftEnd.Invoke();
+                break;
+            case Direction.NONE:
+                //何もしない
                 break;
         }
+        _swipeDir = Direction.NONE;
     }
 
     //スワイプ方向判定
     private Direction Vec2Dirction ( Vector2 vector ){
+
+
+        // 移動量が一定以上でなければスワイプ判定せずに抜ける
+        if ((vector.x < minimumDistance) &&
+             (vector.y < minimumDistance))
+        {
+            return Direction.NONE;
+        }
 
         if (Mathf.Abs(vector.y) >= Mathf.Abs(vector.x)) //縦方向
         {
@@ -172,12 +189,12 @@ public class TouchManager : MonoBehaviour {
             if( flickVector.y >= 0 ) //上
             {
                 Debug.Log("swipe up");
-                swipeUp.Invoke();
+                swipeUpEnd.Invoke();
             }
             else //下
             {
                 Debug.Log("swipe down");
-                swipeDown.Invoke();
+                swipeDownEnd.Invoke();
             }
         }
         else //横方向
@@ -185,12 +202,12 @@ public class TouchManager : MonoBehaviour {
             if( flickVector.x >= 0 ) //右
             {
                 Debug.Log("swipe right");
-                swipeRight.Invoke();
+                swipeRightEnd.Invoke();
             }
             else //左
             {
                 Debug.Log("swipe left");
-                swipeLeft.Invoke();
+                swipeLeftEnd.Invoke();
             }
         }
     }
