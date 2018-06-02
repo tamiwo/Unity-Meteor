@@ -76,21 +76,31 @@ public class TouchManager : MonoBehaviour {
         var touchPoint = gesture.ScreenPosition;
         //開始位置からの移動量をだす
         var moveVector = touchPoint - _touchStartPoint;
-        
+
         // スワイプ方向判定
         Direction dir = Vec2Dirction(moveVector);
-        Debug.Log("Swipe " + moveVector + " (" + dir + ")");
-        switch( dir ){
-            case Direction.UP:
-                break;
-            case Direction.DOWN:
-                break;
-            case Direction.RIGHT:
-                break;
-            case Direction.LEFT:
-                break;
-            case Direction.NONE:
-                break;
+        // 方向が変わった
+        if (_swipeDir != dir)
+        {
+            _swipeDir = dir;
+            Debug.Log("Swipe " + moveVector + " (" + dir + ")");
+            switch (dir)
+            {
+                case Direction.UP:
+                    swipeUpStart.Invoke();
+                    break;
+                case Direction.DOWN:
+                    swipeDownStart.Invoke();
+                    break;
+                case Direction.RIGHT:
+                    swipeRightStart.Invoke();
+                    break;
+                case Direction.LEFT:
+                    swipeLeftStart.Invoke();
+                    break;
+                case Direction.NONE:
+                    break;
+            }
         }
     }
 
@@ -101,14 +111,6 @@ public class TouchManager : MonoBehaviour {
         var touchPoint = gesture.ScreenPosition;
         //開始位置からの移動量をだす
         var moveVector = touchPoint - _touchStartPoint;
-
-        // 移動量が一定以上でなければスワイプ判定せずに抜ける
-        if ((moveVector.x < minimumDistance) &&
-             (moveVector.y < minimumDistance))
-        {
-            
-            return;
-        }
 
         // スワイプ方向判定
         Direction dir = Vec2Dirction(moveVector);
@@ -139,8 +141,8 @@ public class TouchManager : MonoBehaviour {
 
 
         // 移動量が一定以上でなければスワイプ判定せずに抜ける
-        if ((vector.x < minimumDistance) &&
-             (vector.y < minimumDistance))
+        if ((Mathf.Abs(vector.x) < minimumDistance) &&
+            (Mathf.Abs(vector.y) < minimumDistance))
         {
             return Direction.NONE;
         }
