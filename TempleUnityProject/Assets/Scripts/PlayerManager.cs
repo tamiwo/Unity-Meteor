@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour {
 	public GameObject gameManager;				//ゲームマネージャー
 	public LayerMask GroundLayer;				//グラウンドレイヤー
 	public GameObject player;					//プレイヤー
+	public GameObject AttackShape;				//アタックシェイプ
 	private Rigidbody2D rbody;					//プレイヤー制御用
 	private float jumpPower = 400;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
@@ -49,9 +50,15 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	//ジャンプ
-	public void PushJumpButton(){
+	public void Jump(){
 		if (canJump) {
 			goJump = true;
 		}
+	}
+
+	//アタック
+	public void Attack(){
+		GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
+		AttackShapePref.transform.SetParent (player.transform, false);
 	}
 }

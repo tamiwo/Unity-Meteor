@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trap
   - Meteor
+  - AttackShape
   layers:
   - Default
   - TransparentFX
