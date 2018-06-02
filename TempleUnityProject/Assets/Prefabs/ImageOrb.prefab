@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114625343172452326}
   m_Layer: 9
   m_Name: ImageOrb
-  m_TagString: Untagged
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

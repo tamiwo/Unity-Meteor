@@ -19,7 +19,7 @@ public class OutZoneManager : MonoBehaviour {
 
 	//衝突処理
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Trap") {
+		if (col.gameObject.tag == "Meteor") {
 			gameManager.GetComponent<GameManager> ().GameOver ();
 			DestroyPlayer ();
 		}
