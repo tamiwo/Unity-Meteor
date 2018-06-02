@@ -6,7 +6,6 @@ public class AttackShapeManager : MonoBehaviour {
 
 	//オブジェクト参照
 	public GameObject AttackShape;			//アタックシェイプ
-	public GameObject orbManager;			//ゲームマネージャー
 
 	/*
 	//自動消滅
@@ -31,12 +30,5 @@ public class AttackShapeManager : MonoBehaviour {
 
 	public void AttackShapeActive(){
 		AttackShape.SetActive (true);
-	}
-		
-	//衝突処理
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Meteor") {
-			
-		}
 	}
 }
