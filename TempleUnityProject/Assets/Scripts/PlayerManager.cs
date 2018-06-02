@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 	public GameObject gameManager;				//ゲームマネージャー
 	public LayerMask GroundLayer;				//グラウンドレイヤー
+	public GameObject player;					//プレイヤー
 	private Rigidbody2D rbody;					//プレイヤー制御用
 	private float jumpPower = 400;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
@@ -22,8 +23,8 @@ public class PlayerManager : MonoBehaviour {
 		canJump = Physics2D.Linecast (transform.position -
 		(transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer) ||
 		Physics2D.Linecast (transform.position - (transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer);
-		
-	}
+		JumpingPlayer ();
+	}		
 
 	void FixedUpdate() {
 		//ジャンプ処理
@@ -33,15 +34,24 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
-	//ジャンプボタンを押した
-	public void PushJumpButton() {
-		if (canJump) {
-			goJump = true;
+	void JumpingPlayer(){
+		//ジャンプ中のレイヤー切り替え
+		if (!canJump) {
+			player.layer = LayerMask.NameToLayer ("JumpingPlayer");
+		} else if (canJump) {
+			player.layer = LayerMask.NameToLayer ("Player");
 		}
 	}
 		
 	//プレイヤーオブジェクト削除処理
 	void DestroyPlayer(){
 		Destroy (this.gameObject);
+	}
+
+	//ジャンプ
+	public void PushJumpButton(){
+		if (canJump) {
+			goJump = true;
+		}
 	}
 }
