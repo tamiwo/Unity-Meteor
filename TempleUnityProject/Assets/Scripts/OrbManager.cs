@@ -29,10 +29,11 @@ public class OrbManager : MonoBehaviour {
         Destroy(this.gameObject);
     } 
 
-	//衝突処理
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "AttackShape") {
-			Destroy (this.gameObject);
-		}
-	}
+    //破壊処理
+    public void Destroy () {
+        gameManager.GetComponent<GameManager>().GetOrb();
+        gameManager.GetComponent<GameManager>().CreateOrb();
+        Destroy(this.gameObject);
+    }
+
 }

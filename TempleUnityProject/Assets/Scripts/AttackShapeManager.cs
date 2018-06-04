@@ -31,4 +31,13 @@ public class AttackShapeManager : MonoBehaviour {
 	public void AttackShapeActive(){
 		AttackShape.SetActive (true);
 	}
+
+    //衝突処理
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        var obj = col.gameObject;
+        if (obj.tag == "Meteor") {
+            obj.GetComponent<OrbManager>().Destroy();
+        }
+    }
 }
