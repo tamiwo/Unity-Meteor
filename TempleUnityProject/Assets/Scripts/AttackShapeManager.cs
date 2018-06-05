@@ -32,7 +32,10 @@ public class AttackShapeManager : MonoBehaviour {
     {
         var obj = col.gameObject;
         if (obj.tag == "Meteor") {
+            //隕石破壊
             obj.GetComponent<OrbManager>().Destroy();
+            //AttackShape無効化
+            this.gameObject.SetActive(false);
         }
     }
 }
