@@ -60,5 +60,6 @@ public class PlayerManager : MonoBehaviour {
 	public void Attack(){
 		GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
 		AttackShapePref.transform.SetParent (player.transform, false);
+        AttackShapePref.GetComponent<AttackShapeManager>().AttackShapeActive();
 	}
 }

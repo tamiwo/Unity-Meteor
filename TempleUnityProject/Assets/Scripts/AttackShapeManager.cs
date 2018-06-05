@@ -3,33 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackShapeManager : MonoBehaviour {
-
-	//オブジェクト参照
-	public GameObject AttackShape;			//アタックシェイプ
-
-	/*
+    
 	//自動消滅
-	public float life_time = 1.5f;
-	float time = 0f;
-	*/
+	public float lifeTime = 1.5f;
+	private float time = 0f;
 
 	// Use this for initialization
 	void Start () {
-		//time = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		/*time += Time.deltaTime;
-		print (time);
-		if(time>life_time){
-			AttackShape.SetActive (false);
-		}
-		*/
+		time -= Time.deltaTime;
+		if(time < 0){
+			this.gameObject.SetActive (false);
+            Debug.Log("AttackShape Inactivate.");
+        }
 	}
 
 	public void AttackShapeActive(){
-		AttackShape.SetActive (true);
+        Debug.Log("AttackShape Activate.");
+        time = lifeTime;
+        this.gameObject.SetActive(true);
 	}
 
     //衝突処理
