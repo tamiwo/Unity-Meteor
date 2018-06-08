@@ -7,15 +7,17 @@ public class PlayerManager : MonoBehaviour {
 	public LayerMask GroundLayer;				//グラウンドレイヤー
 	public GameObject player;					//プレイヤー
 	public GameObject AttackShape;				//アタックシェイプ
-	private Rigidbody2D rbody;					//プレイヤー制御用
+    public GameObject GuardShape;               //ガードシェイプ
+    private Rigidbody2D rbody;					//プレイヤー制御用
 	private float jumpPower = 400;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
 	private bool canJump = false;				//地面に設置しているか否か
+    private GameObject GuardShapePref;
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		rbody = GetComponent<Rigidbody2D> ();		
 	}
 	
@@ -62,4 +64,16 @@ public class PlayerManager : MonoBehaviour {
 		AttackShapePref.transform.SetParent (player.transform, false);
         AttackShapePref.GetComponent<AttackShapeManager>().AttackShapeActive();
 	}
+
+    public void GuardStart()
+    {
+        GuardShapePref = (GameObject)Instantiate(GuardShape);
+        //GuardShapePref.transform.SetParent(player.transform, false);
+        GuardShapePref.GetComponent<GuardShapeManager>().GuardShapeActive();
+    }
+
+    public void GuardEnd()
+    {
+        GuardShapePref.GetComponent<GuardShapeManager>().GuardShapeInactive();
+    }
 }

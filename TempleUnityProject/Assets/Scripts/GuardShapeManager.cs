@@ -30,16 +30,13 @@ public class GuardShapeManager : MonoBehaviour
             power -= Time.deltaTime * lossRate;
             if (power < 0)
             {
-                this.gameObject.SetActive(false);
-                Debug.Log("GaurdShape Inactivate.");
+                GuardShapeInactive();
             }
         }
         else { // ガードしてない
             if (power < max) //回復中
             {
-                power -= Time.deltaTime * gainRate;
-                this.gameObject.SetActive(false);
-                Debug.Log("GaurdShape Inactivate.");
+                power -= Time.deltaTime * gainRate;;
             }
         }            
     }
@@ -50,10 +47,17 @@ public class GuardShapeManager : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
+    public void GuardShapeInactive()
+    {
+        Debug.Log("GuardShape Inactivate.");
+        this.gameObject.SetActive(false);
+    }
+
     //衝突処理
     void OnCollisionEnter2D(Collision2D col)
     {
         var obj = col.gameObject;
+        Debug.Log("GuardShape Collision " + obj.tag);
         if (obj.tag == "Meteor")
         {
             //GuardShape減少
