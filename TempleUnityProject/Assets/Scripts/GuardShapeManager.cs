@@ -16,6 +16,7 @@ public class GuardShapeManager : MonoBehaviour
     void Start()
     {
         power = dafault;
+        GuardShapeInactive();
     }
 
     // Update is called once per frame
