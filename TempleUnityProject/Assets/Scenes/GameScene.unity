@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1070969773}
   - component: {fileID: 1070969774}
   - component: {fileID: 1070969775}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: GuardShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 1300075376}
   - component: {fileID: 1300075378}
   - component: {fileID: 1300075377}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: AttackShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
