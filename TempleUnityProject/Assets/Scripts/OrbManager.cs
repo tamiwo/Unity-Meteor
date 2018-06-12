@@ -6,10 +6,13 @@ public class OrbManager : MonoBehaviour {
 
     //オブジェクト参照
     private GameObject gameManager;
+    private int HP = 2;
 
 	// Use this for initialization
 	void Start () {
         gameManager = GameObject.Find("GameManager");
+        //HPに合わせてサイズ調整
+        transform.localScale = new Vector3(HP, HP);
 	}
 	
 	// Update is called once per frame
@@ -27,11 +30,25 @@ public class OrbManager : MonoBehaviour {
         gameManager.GetComponent<GameManager>().GetOrb();
         gameManager.GetComponent<GameManager>().CreateOrb();
         Destroy(this.gameObject);
-    } 
+    }
+
+    public void Damage ( int damage )
+    {
+        gameManager.GetComponent<GameManager>().GetOrb();
+        HP -= damage;
+        Debug.Log("Meteor HP:" + HP );
+        if ( HP <= 0 )
+        {
+            Destroy();
+        }
+        else
+        {
+            transform.localScale = new Vector3(HP, HP);
+        }
+    }
 
     //破壊処理
     public void Destroy () {
-        gameManager.GetComponent<GameManager>().GetOrb();
         gameManager.GetComponent<GameManager>().CreateOrb();
         Destroy(this.gameObject);
     }
