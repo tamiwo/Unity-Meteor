@@ -6,7 +6,13 @@ public class OrbManager : MonoBehaviour {
 
     //オブジェクト参照
     private GameObject gameManager;
-    private int HP = 2;
+    private int HP;
+
+    // 生成時にHPを指定する
+    public void SetHP(int hp)
+    {
+        HP = hp;
+    }
 
 	// Use this for initialization
 	void Start () {

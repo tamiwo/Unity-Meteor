@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 	public GameObject textGameOver;				//ゲームオーバーテキスト
 	public GameObject buttons;					//操作ボタン
+    public int meteorHP = 2;
 
     //定数定義
     private const int MAX_ORB = 10;
@@ -37,9 +38,12 @@ public class GameManager : MonoBehaviour {
 
     // オーブ生成
     public void CreateOrb () {
-        GameObject orb = (GameObject)Instantiate(orbPrefab);
+        GameObject orb = (GameObject)Instantiate(orbPrefab);        
         orb.transform.SetParent(canvasGame.transform, false);
         orb.transform.localPosition = createPosition;
+        // HPの設定
+        orb.GetComponent<OrbManager>().SetHP(meteorHP);
+        meteorHP += 1;
     }
 
     //オーブ入手
