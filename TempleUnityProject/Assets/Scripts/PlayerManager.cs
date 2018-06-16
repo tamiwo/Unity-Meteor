@@ -12,7 +12,6 @@ public class PlayerManager : MonoBehaviour {
 	private float jumpPower = 400;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
 	private bool canJump = false;				//地面に設置しているか否か
-    private GameObject GuardShapePref;
 
 
 
@@ -60,20 +59,20 @@ public class PlayerManager : MonoBehaviour {
 
 	//アタック
 	public void Attack(){
-		GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
-		AttackShapePref.transform.SetParent (player.transform, false);
-        AttackShapePref.GetComponent<AttackShapeManager>().AttackShapeActive();
+		//GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
+		AttackShape.transform.SetParent (player.transform, false);
+        AttackShape.GetComponent<AttackShapeManager>().AttackShapeActive();
 	}
 
     public void GuardStart()
     {
-        GuardShapePref = (GameObject)Instantiate(GuardShape);
-        //GuardShapePref.transform.SetParent(player.transform, false);
-        GuardShapePref.GetComponent<GuardShapeManager>().GuardShapeActive();
+        //GuardShapePref = (GameObject)Instantiate(GuardShape);
+        GuardShape.transform.SetParent(player.transform, false);
+        GuardShape.GetComponent<GuardShapeManager>().GuardShapeActive();
     }
 
     public void GuardEnd()
     {
-        GuardShapePref.GetComponent<GuardShapeManager>().GuardShapeInactive();
+        GuardShape.GetComponent<GuardShapeManager>().GuardShapeInactive();
     }
 }
