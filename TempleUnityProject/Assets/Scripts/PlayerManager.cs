@@ -22,6 +22,20 @@ public class PlayerManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Debug.Log("Up key down");
+            Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.A)){
+            Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow)){
+            GuardStart();
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow) ){
+            GuardEnd();
+        }
 		canJump = Physics2D.Linecast (transform.position -
 		(transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer) ||
 		Physics2D.Linecast (transform.position - (transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer);
