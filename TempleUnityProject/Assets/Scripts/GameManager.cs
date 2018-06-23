@@ -60,6 +60,6 @@ public class GameManager : MonoBehaviour {
     //スコアてきすと更新
     void RefreshScoreText (){
         textScore.GetComponent<Text>().text =
-            "Score：" + score + "/" + nextScore;
+            score + "/" + nextScore;
     }
 }
