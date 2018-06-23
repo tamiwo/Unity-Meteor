@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public GameObject orbPrefab;
     public GameObject canvasGame;
     public GameObject textScore;
+	public GameObject TextHighScore;
 
     //設定値
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour {
         //初期オーブ生成
         CreateOrb();
         RefreshScoreText();
+		RefreshHighScoreText();
+
 	}
 	
 	// Update is called once per frame
@@ -62,4 +65,9 @@ public class GameManager : MonoBehaviour {
         textScore.GetComponent<Text>().text =
             score + "/" + nextScore;
     }
+
+	void RefreshHighScoreText(){
+		TextHighScore.GetComponent<Text>().text =
+			"BEST " + "000";
+	}
 }
