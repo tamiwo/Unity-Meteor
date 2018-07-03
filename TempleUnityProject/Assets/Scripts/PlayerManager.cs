@@ -76,6 +76,7 @@ public class PlayerManager : MonoBehaviour {
 		//GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
 		AttackShape.transform.SetParent (player.transform, false);
         AttackShape.GetComponent<AttackShapeManager>().AttackShapeActive();
+		player.GetComponent<Animator> ().SetTrigger ("isStandAttack");
 	}
 
     public void GuardStart()
