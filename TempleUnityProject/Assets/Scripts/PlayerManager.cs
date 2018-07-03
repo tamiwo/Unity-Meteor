@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class PlayerManager : MonoBehaviour {
 	public GameObject gameManager;				//ゲームマネージャー
@@ -76,7 +78,13 @@ public class PlayerManager : MonoBehaviour {
 		//GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
 		AttackShape.transform.SetParent (player.transform, false);
         AttackShape.GetComponent<AttackShapeManager>().AttackShapeActive();
-		player.GetComponent<Animator> ().SetTrigger ("isStandAttack");
+		AnimatorStateInfo stateInfo = player.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0);
+		if (stateInfo.fullPathHash == Animator.StringToHash ("Base Layer.standAttack@Player")) {
+			//すでに再生中なら戦闘から
+			player.GetComponent<Animator> ().Play (stateInfo.fullPathHash, 0, 0.0f);
+		} else {
+			player.GetComponent<Animator> ().SetTrigger ("isStandAttack");
+		}
 	}
 
     public void GuardStart()
