@@ -44,6 +44,7 @@ public class PlayerManager : MonoBehaviour {
 		(transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer) ||
 		Physics2D.Linecast (transform.position - (transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer);
 		JumpingPlayer ();
+		animator.SetBool ("isJump", canJump);
 	}		
 
 	void FixedUpdate() {
