@@ -44,7 +44,10 @@ public class PlayerManager : MonoBehaviour {
 		(transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer) ||
 		Physics2D.Linecast (transform.position - (transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer);
 		JumpingPlayer ();
-		animator.SetBool ("isJump", canJump);
+		if (!canJump) {
+			animator.SetBool ("isJump", false);
+		}
+
 	}		
 
 	void FixedUpdate() {
@@ -74,6 +77,7 @@ public class PlayerManager : MonoBehaviour {
 		if (canJump) {
 			goJump = true;
 		}
+		animator.SetBool ("isJump", true);
 	}
 
 	//アタック
@@ -82,11 +86,11 @@ public class PlayerManager : MonoBehaviour {
 		AttackShape.transform.SetParent (player.transform, false);
         AttackShape.GetComponent<AttackShapeManager>().AttackShapeActive();
 		AnimatorStateInfo stateInfo = player.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0);
-		if (stateInfo.fullPathHash == Animator.StringToHash ("Base Layer.standAttack@Player")) {
-			//すでに再生中なら戦闘から
-			player.GetComponent<Animator> ().Play (stateInfo.fullPathHash, 0, 0.0f);
-		} else {
+		if (canJump) {
 			player.GetComponent<Animator> ().SetTrigger ("isStandAttack");
+		} else  {
+			player.GetComponent<Animator> ().SetTrigger ("isJumpAttack");
+			Debug.Log("isJump ON");
 		}
 	}
 
@@ -95,12 +99,17 @@ public class PlayerManager : MonoBehaviour {
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
         GuardShape.transform.SetParent(player.transform, false);
         GuardShape.GetComponent<GuardShapeManager>().GuardShapeActive();
-		animator.SetBool ("isGuard", true);
+		if (canJump) {
+			animator.SetBool ("isGuard", true);
+		} else if (!canJump) {
+			animator.SetBool ("isJumpGuard", true);
+		}
     }
 
     public void GuardEnd()
     {
         GuardShape.GetComponent<GuardShapeManager>().GuardShapeInactive();
 		animator.SetBool ("isGuard", false);
+		animator.SetBool ("isJumpGuard", false);
     }
 }
