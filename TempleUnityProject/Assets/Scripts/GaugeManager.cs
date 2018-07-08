@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GaugeManager : MonoBehaviour {
 
-    public GameObject ultraBar;
-
 	// Use this for initialization
-	void Start () {
+	void Start () {;
 		
 	}
 	
