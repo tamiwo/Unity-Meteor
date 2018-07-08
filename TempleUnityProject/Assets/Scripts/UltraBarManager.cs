@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class UltraBarManager : MonoBehaviour {
 
-    public GameObject bar;
-
     private Vector3 scaleOrigin;
 
 	// Use this for initialization
 	void Start () {
-        scaleOrigin = bar.transform.localScale;
+        Vector3 scale = transform.localScale;
+        scaleOrigin = new Vector3(scale.x,scale.y);
         SetScale(0.5f);
 	}
 	
