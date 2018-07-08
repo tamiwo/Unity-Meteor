@@ -9,8 +9,6 @@ public class UltraBarManager : MonoBehaviour {
     public GameObject barPush;
     public GameObject buttonUltra;
     public GameObject buttonUltraBack;
-    public Material btnDisable;
-    public Material btnEnable;
 
     private Vector3 barScaleOrigin;
     private Vector3 barScale;
@@ -54,11 +52,10 @@ public class UltraBarManager : MonoBehaviour {
      
     void enableUltra(){
         barPush.SetActive(true);
-
+        buttonUltra.SetActive(true);
     }
     void disableUltra(){
         barPush.SetActive(false);
-        buttonUltra.GetComponent<Button>().interactable = false;
-        buttonUltra.GetComponent<Renderer>().material = btnDisable;
+        buttonUltra.SetActive(false);
     }
 }
