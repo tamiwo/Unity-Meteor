@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class UltraBarManager : MonoBehaviour {
 
-    private Vector3 scaleOrigin;
+    public GameObject barMask; 
+
+    private Vector3 barScaleOrigin;
+    private Vector3 barScale;
 
 	// Use this for initialization
 	void Start () {
-        Vector3 scale = transform.localScale;
-        scaleOrigin = new Vector3(scale.x,scale.y);
+        barScale = barMask.transform.localScale;
+        barScaleOrigin = new Vector3(barScale.x,barScale.y);
         SetScale(0.5f);
 	}
 	
@@ -19,6 +22,6 @@ public class UltraBarManager : MonoBehaviour {
 	}
 
     public void SetScale( float scale ){
-        transform.localScale = new Vector3(scaleOrigin.x * scale, scaleOrigin.y);
+        barMask.transform.localScale = new Vector3(barScaleOrigin.x * scale, barScaleOrigin.y);
     }
 }
