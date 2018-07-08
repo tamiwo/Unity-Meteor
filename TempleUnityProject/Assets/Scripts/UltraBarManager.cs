@@ -13,20 +13,23 @@ public class UltraBarManager : MonoBehaviour {
     private Vector3 barScaleOrigin;
     private Vector3 barScale;
 
+    private float scale = 0.0f;
+
 	// Use this for initialization
 	void Start () {
         //初期値(100%)の長さを取得する
         barScale = barMask.transform.localScale;
         barScaleOrigin = new Vector3(barScale.x,barScale.y);
 
-        SetScale(0.99f);
+        SetScale(0.0f);
         disableUltra();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        SetScale(scale);
+        scale += 0.01f;
 	}
 
     public void SetScale (float scale) {
