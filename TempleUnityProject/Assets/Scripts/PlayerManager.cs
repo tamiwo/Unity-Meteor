@@ -14,12 +14,14 @@ public class PlayerManager : MonoBehaviour {
 	private float jumpPower = 400;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
 	private bool canJump = false;				//地面に設置しているか否か
+	private Animator animator;					//アニメーター
 
 
 
     // Use this for initialization
     void Start () {
-		rbody = GetComponent<Rigidbody2D> ();		
+		rbody = GetComponent<Rigidbody2D> ();	
+		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -92,10 +94,12 @@ public class PlayerManager : MonoBehaviour {
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
         GuardShape.transform.SetParent(player.transform, false);
         GuardShape.GetComponent<GuardShapeManager>().GuardShapeActive();
+		animator.SetBool ("isGuard", true);
     }
 
     public void GuardEnd()
     {
         GuardShape.GetComponent<GuardShapeManager>().GuardShapeInactive();
+		animator.SetBool ("isGuard", false);
     }
 }
