@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 488850062}
   - component: {fileID: 488850063}
+  - component: {fileID: 488850064}
   m_Layer: 0
   m_Name: cloud_0
   m_TagString: Untagged
@@ -508,6 +509,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &488850064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488850061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aecb9f22f801840c9805c5fee7b34573, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
