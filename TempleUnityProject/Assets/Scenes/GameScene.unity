@@ -712,10 +712,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 744120590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 1298670827}
+  m_Father: {fileID: 1516269798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &744120592
@@ -762,7 +762,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
 --- !u!1 &828672354
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,15 +818,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 959790758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 1666309165}
-  m_RootOrder: 4
+  m_Father: {fileID: 1516269798}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.55, y: 0}
+  m_AnchoredPosition: {x: 4.75, y: 0}
   m_SizeDelta: {x: 3.9, y: 3.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959790760
@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 1298670828}
   - component: {fileID: 1298670830}
   m_Layer: 0
-  m_Name: UrtraBarMask
+  m_Name: Maxk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,12 +1400,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1298670826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 3}
-  m_LocalScale: {x: 4, y: 2, z: 1}
-  m_Children:
-  - {fileID: 744120591}
-  m_Father: {fileID: 1666309165}
-  m_RootOrder: 3
+  m_LocalPosition: {x: -6.8, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1516269798}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1298670828
 SpriteRenderer:
@@ -1451,7 +1450,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!331 &1298670829
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -1725,6 +1724,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 1280}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1516269797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1516269798}
+  m_Layer: 0
+  m_Name: UltraGauge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516269798
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1516269797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 744120591}
+  - {fileID: 959790759}
+  - {fileID: 1298670827}
+  m_Father: {fileID: 1666309165}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593356232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,8 +2211,7 @@ Transform:
   - {fileID: 486317229}
   - {fileID: 628152276}
   - {fileID: 128943928}
-  - {fileID: 1298670827}
-  - {fileID: 959790759}
+  - {fileID: 1516269798}
   - {fileID: 1884706137}
   m_Father: {fileID: 1263934574}
   m_RootOrder: 5
@@ -2456,7 +2485,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 1666309165}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1884706138
 SpriteRenderer:

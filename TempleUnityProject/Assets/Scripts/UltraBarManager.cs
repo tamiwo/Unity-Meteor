@@ -18,7 +18,7 @@ public class UltraBarManager : MonoBehaviour {
 
 	}
 
-    void SetScale( float scale ){
+    public void SetScale( float scale ){
         transform.localScale = new Vector3(scaleOrigin.x * scale, scaleOrigin.y);
     }
 }
