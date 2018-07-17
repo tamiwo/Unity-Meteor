@@ -10,7 +10,7 @@ public class GuardShapeManager : MonoBehaviour
     public float lossRate = 1.0f;       //ガード中に減少量[/s]
     public float gainRate = 1.0f;       //回復中の増加量[/s]
     public float lostByMeteor = 7.0f;   //隕石と接触したときに減らす量
-    private float power = 0f;
+    public float power = 0f;
 
     // Use this for initialization
     void Start()
