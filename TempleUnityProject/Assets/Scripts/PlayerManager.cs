@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
 	public LayerMask GroundLayer;				//グラウンドレイヤー
 	public GameObject player;					//プレイヤー
 	public GameObject AttackShape;				//アタックシェイプ
+    public GameObject UltraAttackShape;         //必殺技シェイプ
     public GameObject GuardShape;               //ガードシェイプ
     private Rigidbody2D rbody;					//プレイヤー制御用
 	private float jumpPower = 400;				//ジャンプ力
@@ -47,7 +48,6 @@ public class PlayerManager : MonoBehaviour {
 		if (!canJump) {
 			animator.SetBool ("isJump", false);
 		}
-
 	}		
 
 	void FixedUpdate() {
@@ -94,6 +94,12 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
+    public void UltraAttack()
+    {
+        UltraAttackShape.transform.SetParent(player.transform, false);
+        UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeActive();
+    }
+
     public void GuardStart()
     {
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
@@ -116,4 +122,5 @@ public class PlayerManager : MonoBehaviour {
 		animator.SetBool ("isGuard", false);
 		animator.SetBool ("isJumpGuard", false);
     }
+
 }
