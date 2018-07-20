@@ -946,7 +946,7 @@ MonoBehaviour:
     m_Bits: 256
   player: {fileID: 990207965}
   AttackShape: {fileID: 1300075375}
-  UltraAttackShape: {fileID: 0}
+  UltraAttackShape: {fileID: 1204725392}
   GuardShape: {fileID: 1070969771}
 --- !u!95 &990207972
 Animator:
@@ -1168,7 +1168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1204725393
 Transform:
   m_ObjectHideFlags: 0

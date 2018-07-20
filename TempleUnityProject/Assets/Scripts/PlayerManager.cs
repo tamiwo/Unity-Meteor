@@ -96,6 +96,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void UltraAttack()
     {
+        Debug.Log("Ultra Attack");
         UltraAttackShape.transform.SetParent(player.transform, false);
         UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeActive();
     }
