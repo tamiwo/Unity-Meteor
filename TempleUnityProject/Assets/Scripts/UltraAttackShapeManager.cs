@@ -28,7 +28,7 @@ public class UltraAttackShapeManager : MonoBehaviour
     }
 
     //衝突処理
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         var obj = col.gameObject;
         if (obj.tag == "Meteor")
