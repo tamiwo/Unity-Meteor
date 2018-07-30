@@ -15,16 +15,10 @@ public class UltraAttackShapeManager : MonoBehaviour
     {
     }
 
-    public void UltraAttackShapeActive()
+    public void UltraAttackShapeSetActive(bool isActive)
     {
-        Debug.Log("UltraAttackStart.");
-        this.gameObject.SetActive(true);
-    }
-
-    public void UltraAttackShapeInactive()
-    {
-        Debug.Log("UltraAttackEnd.");
-        this.gameObject.SetActive(false);
+        Debug.Log("UltraAttack " + isActive);
+        this.gameObject.SetActive(isActive);
     }
 
     //衝突処理

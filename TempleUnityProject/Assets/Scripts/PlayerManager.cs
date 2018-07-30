@@ -97,6 +97,11 @@ public class PlayerManager : MonoBehaviour {
     public void UltraAttack()
     {
         Debug.Log("Ultra Attack");
+        //ジャンプ
+        goJump = true;
+        //アニメーション
+        player.GetComponent<Animator>().SetTrigger("isJumpAttack");
+        //UltraAttackShape有効化
         UltraAttackShape.transform.SetParent(player.transform, false);
         UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeActive();
     }
@@ -129,5 +134,11 @@ public class PlayerManager : MonoBehaviour {
     {
         var obj = col.gameObject;
         Debug.Log("player collision" + obj.tag);
+
+        if (obj.tag == "Ground")
+        {
+            //UrtraAttackShape無効化
+            UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
+        }
     }
 }
