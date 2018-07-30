@@ -124,4 +124,10 @@ public class PlayerManager : MonoBehaviour {
 		animator.SetBool ("isJumpGuard", false);
     }
 
+    //衝突処理
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        var obj = col.gameObject;
+        Debug.Log("player collision" + obj.tag);
+    }
 }
