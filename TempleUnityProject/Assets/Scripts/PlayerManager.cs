@@ -104,7 +104,7 @@ public class PlayerManager : MonoBehaviour {
         player.GetComponent<Animator>().SetTrigger("isJumpAttack");
         //UltraAttackShape有効化
         UltraAttackShape.transform.SetParent(player.transform, false);
-        UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeActive();
+        UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(true);
     }
 
     public void GuardStart()
