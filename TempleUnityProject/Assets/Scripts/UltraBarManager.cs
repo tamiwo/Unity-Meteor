@@ -21,15 +21,15 @@ public class UltraBarManager : MonoBehaviour {
         barScale = barMask.transform.localScale;
         barScaleOrigin = new Vector3(barScale.x,barScale.y);
 
-        SetScale(0.0f);
-        disableUltra();
-
+        SetScale(1.0f);
+        //disableUltra();
+        enableUltra();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        SetScale(scale);
-        scale += 0.01f;
+        //SetScale(scale);
+        //scale += 0.01f;
 	}
 
     public void SetScale (float scale) {
@@ -53,11 +53,15 @@ public class UltraBarManager : MonoBehaviour {
 
     }
      
-    void enableUltra(){
+    public void enableUltra()
+    {
+        Debug.Log("ultra enable");
         barPush.SetActive(true);
         buttonUltra.SetActive(true);
     }
-    void disableUltra(){
+    public void disableUltra(){
+        Debug.Log("ultra Disable");
+        SetScale(0.0f);
         barPush.SetActive(false);
         buttonUltra.SetActive(false);
     }

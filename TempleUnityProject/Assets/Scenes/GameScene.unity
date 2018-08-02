@@ -755,6 +755,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &661309303 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114415335201948580, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+    type: 2}
+  m_PrefabInternal: {fileID: 2059078324}
+  m_Script: {fileID: 11500000, guid: e13ea2cd817404df78cd3d17f914eafe, type: 3}
 --- !u!1 &828672354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2432,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1666309165}
     m_Modifications:
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4944629898083216, guid: 4128c3130913b44f9a4b59aeaf5c9854, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.8
@@ -2467,6 +2478,31 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UltraAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 661309303}
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: disableUltra
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089111069184910, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4128c3130913b44f9a4b59aeaf5c9854, type: 2}
