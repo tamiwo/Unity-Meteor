@@ -38,7 +38,7 @@ public class AttackShapeManager : MonoBehaviour {
             //AttackShape無効化
             this.gameObject.SetActive(false);
             //ultraGauge増加
-            ultraGauge.GetComponent<UltraBarManager>().AddPower(10);
+            ultraGauge.GetComponent<UltraBarManager>().AddPower(1);
         }
     }
 }

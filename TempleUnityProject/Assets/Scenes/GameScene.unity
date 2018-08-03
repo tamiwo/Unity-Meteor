@@ -1407,6 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1.5
+  ultraGauge: {fileID: 1889129093}
 --- !u!61 &1300075378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2283,6 +2284,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4159516001862254, guid: e93aba20f2c324ce790796e8b30ec30d,
     type: 2}
   m_PrefabInternal: {fileID: 1252203715}
+--- !u!1 &1889129093 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1426986530965926, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+    type: 2}
+  m_PrefabInternal: {fileID: 2059078324}
 --- !u!1 &1913064578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2509,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415335201948580, guid: 4128c3130913b44f9a4b59aeaf5c9854,
+        type: 2}
+      propertyPath: maxPower
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4128c3130913b44f9a4b59aeaf5c9854, type: 2}
