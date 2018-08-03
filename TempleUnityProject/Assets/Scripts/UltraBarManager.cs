@@ -10,6 +10,10 @@ public class UltraBarManager : MonoBehaviour {
     public GameObject buttonUltra;
     public GameObject buttonUltraBack;
 
+    public int startPower;
+    public int maxPower;
+    private int power = 0;
+
     private Vector3 barScaleOrigin;
     private Vector3 barScale;
 
@@ -21,9 +25,9 @@ public class UltraBarManager : MonoBehaviour {
         barScale = barMask.transform.localScale;
         barScaleOrigin = new Vector3(barScale.x,barScale.y);
 
-        SetScale(1.0f);
-        //disableUltra();
-        enableUltra();
+        SetPower(startPower);
+
+        disableUltra();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +36,16 @@ public class UltraBarManager : MonoBehaviour {
         //scale += 0.01f;
 	}
 
-    public void SetScale (float scale) {
+    public void AddPower(int pow) {
+        SetPower(power + pow);
+    }
+
+    public void SetPower(int pow) {
+        power = pow;
+        SetScale((float)power / (float)maxPower);
+    }
+
+    void SetScale (float scale) {
 
         // 0から1の範囲に収める
         if( scale > 1.0f ){
@@ -61,7 +74,7 @@ public class UltraBarManager : MonoBehaviour {
     }
     public void disableUltra(){
         Debug.Log("ultra Disable");
-        SetScale(0.0f);
+        SetPower(0);
         barPush.SetActive(false);
         buttonUltra.SetActive(false);
     }
