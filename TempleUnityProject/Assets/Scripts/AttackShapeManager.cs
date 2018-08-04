@@ -7,6 +7,7 @@ public class AttackShapeManager : MonoBehaviour {
 	//自動消滅
 	public float lifeTime = 1.5f;
 	private float time = 0f;
+    public GameObject ultraGauge;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,8 @@ public class AttackShapeManager : MonoBehaviour {
             obj.GetComponent<OrbManager>().Damage(1);
             //AttackShape無効化
             this.gameObject.SetActive(false);
+            //ultraGauge増加
+            ultraGauge.GetComponent<UltraBarManager>().AddPower(1);
         }
     }
 }
