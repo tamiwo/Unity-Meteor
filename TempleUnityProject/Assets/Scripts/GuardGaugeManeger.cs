@@ -6,13 +6,12 @@ public class GuardGaugeManeger : MonoBehaviour {
 
     public GameObject barMask;
 
-    public float max = 20.0f;           //最大値
-    public float dafault = 20.0f;       //初期値
-    public float lossRate = 1.0f;       //ガード中に減少量[/s]
+    public float max = 90.0f;           //最大値
+    public float dafault = 100.0f;       //初期値
+    public float lossRate = 2.0f;       //ガード中の減少量[/s]
     public float gainRate = 1.0f;       //回復中の増加量[/s]
-    public float lostByMeteor = 7.0f;   //隕石と接触したときに減らす量
+    public float lostByMeteor = 30.0f;   //隕石と接触したときに減らす量
     public float power = 0f;
-    public GameObject guardShape;
 
     private Vector3 barScaleOrigin;
     private Vector3 barScale;
@@ -30,27 +29,27 @@ public class GuardGaugeManeger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("GaurdShape pow:" + power + "(" + guardShape.activeSelf + ")" );
-
-        if (guardShape.activeSelf == true)// ガード中
-        {
-            power -= Time.deltaTime * lossRate;
+        Debug.Log("Gaurd power:" + power );
+        
+        if (power < max) { //ガード回復
+            power += Time.deltaTime * gainRate;
             SetScale(power / max);
-            if (power < 0)
-            {
-                guardShape.GetComponent<GuardShapeManager>().GuardShapeInactive();
-            }
         }
-        else { // ガードしてない
-            if (power < max) //回復中
-            {
-                power += Time.deltaTime * gainRate;
-                SetScale(power / max);
-            }
-        } 
     }
 
+    public void Guarding() {
+        power -= Time.deltaTime * lossRate;
+        SetScale(power / max);
+    }
 
+    public void GuardMeteor() {
+        //GuardShape減少
+        power -= lostByMeteor;
+        SetScale(power / max);
+        if (power < 0) {
+            //アニメーション
+        }
+    }
 
     void SetScale(float scale) {
 

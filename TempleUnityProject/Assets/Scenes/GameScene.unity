@@ -1064,13 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ff755e639b35b4e93f4c3aef8384e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 20
-  dafault: 20
-  lossRate: 1
-  gainRate: 1
-  lostByMeteor: 7
-  power: 0
-  gauge: {fileID: 415813163}
+  guardGauge: {fileID: 415813163}
 --- !u!1 &1122636940
 GameObject:
   m_ObjectHideFlags: 0
