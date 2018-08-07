@@ -237,6 +237,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4228108180816590, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9,
     type: 2}
   m_PrefabInternal: {fileID: 59976008}
+--- !u!1 &415813163 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1393024452869130, guid: e93aba20f2c324ce790796e8b30ec30d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1252203715}
 --- !u!1 &439583316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,12 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ff755e639b35b4e93f4c3aef8384e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 20
-  dafault: 20
-  lossRate: 1
-  gainRate: 1
-  lostByMeteor: 7
-  power: 0
+  guardGauge: {fileID: 415813163}
 --- !u!1 &1122636940
 GameObject:
   m_ObjectHideFlags: 0

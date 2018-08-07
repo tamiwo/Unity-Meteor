@@ -112,9 +112,9 @@ public class PlayerManager : MonoBehaviour {
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
         GuardShape.transform.SetParent(player.transform, false);
         GuardShapeManager guardShape = GuardShape.GetComponent<GuardShapeManager>();
-        if ( guardShape.power > 0) //ガード可能
+        guardShape.GuardShapeActive();
+        if ( GuardShape.activeSelf == true ) //ガード可能
         {
-            guardShape.GuardShapeActive();
 		    if (canJump) {
 			    animator.SetBool ("isGuard", true);
 		    } else if (!canJump) {
