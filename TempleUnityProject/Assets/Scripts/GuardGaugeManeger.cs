@@ -6,6 +6,7 @@ public class GuardGaugeManeger : MonoBehaviour {
 
     public GameObject barMask;
     public GameObject pod1Mask;
+    public GameObject pod2Mask;
 
     public float max = 90.0f;           //最大値
     public float dafault = 90.0f;       //初期値
@@ -16,6 +17,7 @@ public class GuardGaugeManeger : MonoBehaviour {
 
     private Vector3 barScaleOrigin;
     private Vector3 pod1MaskScaleOrigin;
+    private Vector3 pod2MaskScaleOrigin;
 
 	// Use this for initialization
     void Start () {
@@ -24,6 +26,8 @@ public class GuardGaugeManeger : MonoBehaviour {
         barScaleOrigin = new Vector3(scale.x, scale.y);
         scale = pod1Mask.transform.localScale;
         pod1MaskScaleOrigin = new Vector3(scale.x, scale.y);
+        scale = pod2Mask.transform.localScale;
+        pod2MaskScaleOrigin = new Vector3(scale.x, scale.y);
 
         power = dafault;
         SetScale(power / max);
@@ -68,6 +72,6 @@ public class GuardGaugeManeger : MonoBehaviour {
         //Debug.Log("set scale" + scale );
         barMask.transform.localScale = new Vector3(barScaleOrigin.x * scale, barScaleOrigin.y);
         pod1Mask.transform.localScale = new Vector3(pod1MaskScaleOrigin.x, pod1MaskScaleOrigin.y * scale);
-
+        pod2Mask.transform.localScale = new Vector3(pod2MaskScaleOrigin.x, pod2MaskScaleOrigin.y * scale);
     }
 }
