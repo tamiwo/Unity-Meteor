@@ -35,7 +35,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4228108180816590}
-  - component: {fileID: 114114779177158490}
   - component: {fileID: 95969978104427390}
   m_Layer: 0
   m_Name: Pod
@@ -239,18 +238,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114114779177158490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1191512846848936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a900ba631882a014c963dff12032e1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barMask: {fileID: 1691421526813710}
 --- !u!212 &212015429789736742
 SpriteRenderer:
   m_ObjectHideFlags: 1

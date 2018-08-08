@@ -152,9 +152,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &111585058 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1691421526813710, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9,
+    type: 2}
+  m_PrefabInternal: {fileID: 59976008}
 --- !u!1 &130900804
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +775,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2059078324}
   m_Script: {fileID: 11500000, guid: e13ea2cd817404df78cd3d17f914eafe, type: 3}
+--- !u!1 &769292497 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1847142314218110, guid: e93aba20f2c324ce790796e8b30ec30d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1252203715}
 --- !u!1 &828672354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1276,21 @@ Prefab:
     - target: {fileID: 4159516001862254, guid: e93aba20f2c324ce790796e8b30ec30d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: barMask
+      value: 
+      objectReference: {fileID: 769292497}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: pod1Mask
+      value: 
+      objectReference: {fileID: 111585058}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: dafault
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e93aba20f2c324ce790796e8b30ec30d, type: 2}
