@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114114779177158490, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9, type: 2}
   m_IsPrefabParent: 0
@@ -766,6 +771,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2059078324}
   m_Script: {fileID: 11500000, guid: e13ea2cd817404df78cd3d17f914eafe, type: 3}
+--- !u!1 &784997320 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1847142314218110, guid: e93aba20f2c324ce790796e8b30ec30d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1252203715}
 --- !u!1 &828672354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1241,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1666309165}
     m_Modifications:
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: barMasks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4159516001862254, guid: e93aba20f2c324ce790796e8b30ec30d, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.65
@@ -1263,6 +1278,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: dafault
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: lossRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: gainRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: barMasks.Array.data[0]
+      value: 
+      objectReference: {fileID: 784997320}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: barMasks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1963924297}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: gaugeMask
+      value: 
+      objectReference: {fileID: 784997320}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: podMask1
+      value: 
+      objectReference: {fileID: 1963924297}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e93aba20f2c324ce790796e8b30ec30d, type: 2}
   m_IsPrefabParent: 0
@@ -2357,6 +2407,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1913064578}
+--- !u!1 &1963924297 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1691421526813710, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9,
+    type: 2}
+  m_PrefabInternal: {fileID: 59976008}
 --- !u!1 &2047196467
 GameObject:
   m_ObjectHideFlags: 0

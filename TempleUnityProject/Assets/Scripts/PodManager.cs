@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PodManager : MonoBehaviour {
 
+    /*
     public GameObject barMask;
 
     private Vector3 barScaleOrigin;
@@ -43,4 +44,5 @@ public class PodManager : MonoBehaviour {
         barMask.transform.localScale = new Vector3(barScaleOrigin.x, barScaleOrigin.y * scale);
 
     }
+    */
 }

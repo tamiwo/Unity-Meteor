@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class GuardGaugeManeger : MonoBehaviour {
 
-    public GameObject barMask;
+    public GameObject gaugeMask;
+    public GameObject podMask1;
+    //public GameObject podMask2;
 
     public float max = 90.0f;           //最大値
-    public float dafault = 100.0f;       //初期値
-    public float lossRate = 2.0f;       //ガード中の減少量[/s]
-    public float gainRate = 1.0f;       //回復中の増加量[/s]
+    public float dafault = 90.0f;       //初期値
+    public float lossRate = 10.0f;       //ガード中の減少量[/s]
+    public float gainRate = 5.0f;       //回復中の増加量[/s]
     public float lostByMeteor = 30.0f;   //隕石と接触したときに減らす量
     public float power = 0f;
 
-    private Vector3 barScaleOrigin;
-    private Vector3 barScale;
-    private float scale = 0.0f;
+    private Vector3 gaugeMaskScaleOrigin;
+    private Vector3 podMask1ScaleOrigin;
+    //private Vector3 podMask2ScaleOrigin;
 
-	// Use this for initialization
+    // Use this for initialization
     void Start () {
         //初期値(100%)の長さを取得する
-        barScale = barMask.transform.localScale;
-        barScaleOrigin = new Vector3(barScale.x, barScale.y);
+        Vector3 scale = gaugeMask.transform.localScale;
+        gaugeMaskScaleOrigin = new Vector3(scale.x, scale.y);
+        Vector2 podscale = podMask1.transform.localScale;
+        podMask1ScaleOrigin = new Vector3(podscale.x, podscale.y);
+        //scale = podMask2.transform.localScale;
+        //podMask2ScaleOrigin = new Vector3(scale.x, scale.y);
 
         power = dafault;
         SetScale(power / max);
@@ -29,7 +35,6 @@ public class GuardGaugeManeger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Gaurd power:" + power );
         
         if (power < max) { //ガード回復
             power += Time.deltaTime * gainRate;
@@ -64,7 +69,9 @@ public class GuardGaugeManeger : MonoBehaviour {
             scale = 0.0f;
         }
         //Debug.Log("set scale" + scale );
-        barMask.transform.localScale = new Vector3(barScaleOrigin.x * scale, barScaleOrigin.y);
-
+        gaugeMask.transform.localScale = new Vector3(gaugeMaskScaleOrigin.x * scale, gaugeMaskScaleOrigin.y);
+        podMask1.transform.localScale = new Vector3(podMask1ScaleOrigin.x, gaugeMaskScaleOrigin.y * scale);
+        Debug.Log(podMask1.transform.localScale.ToString());
+        //podMask2.transform.localScale = new Vector3(podMask2ScaleOrigin.x, gaugeMaskScaleOrigin.y * scale);
     }
 }
