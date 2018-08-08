@@ -5,7 +5,7 @@ using UnityEngine;
 public class GuardGaugeManeger : MonoBehaviour {
 
     public GameObject gaugeMask;
-    public GameObject podMask1;
+    public GameObject pod1Mask;
     //public GameObject podMask2;
 
     public float max = 90.0f;           //最大値
@@ -16,7 +16,7 @@ public class GuardGaugeManeger : MonoBehaviour {
     public float power = 0f;
 
     private Vector3 gaugeMaskScaleOrigin;
-    private Vector3 podMask1ScaleOrigin;
+    private Vector3 pod1MaskScaleOrigin;
     //private Vector3 podMask2ScaleOrigin;
 
     // Use this for initialization
@@ -24,8 +24,8 @@ public class GuardGaugeManeger : MonoBehaviour {
         //初期値(100%)の長さを取得する
         Vector3 scale = gaugeMask.transform.localScale;
         gaugeMaskScaleOrigin = new Vector3(scale.x, scale.y);
-        Vector2 podscale = podMask1.transform.localScale;
-        podMask1ScaleOrigin = new Vector3(podscale.x, podscale.y);
+        Vector3 podscale = pod1Mask.transform.localScale;
+        pod1MaskScaleOrigin = new Vector3(podscale.x, podscale.y);
         //scale = podMask2.transform.localScale;
         //podMask2ScaleOrigin = new Vector3(scale.x, scale.y);
 
@@ -70,8 +70,8 @@ public class GuardGaugeManeger : MonoBehaviour {
         }
         //Debug.Log("set scale" + scale );
         gaugeMask.transform.localScale = new Vector3(gaugeMaskScaleOrigin.x * scale, gaugeMaskScaleOrigin.y);
-        podMask1.transform.localScale = new Vector3(podMask1ScaleOrigin.x, gaugeMaskScaleOrigin.y * scale);
-        Debug.Log(podMask1.transform.localScale.ToString());
+        pod1Mask.transform.localScale = new Vector3(pod1MaskScaleOrigin.x, pod1MaskScaleOrigin.y * scale);
+        //Debug.Log(pod1Mask.transform.localScale.ToString());
         //podMask2.transform.localScale = new Vector3(podMask2ScaleOrigin.x, gaugeMaskScaleOrigin.y * scale);
     }
 }

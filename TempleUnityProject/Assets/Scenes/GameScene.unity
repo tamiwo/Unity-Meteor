@@ -1313,6 +1313,11 @@ Prefab:
       propertyPath: podMask1
       value: 
       objectReference: {fileID: 1963924297}
+    - target: {fileID: 114620065764497418, guid: e93aba20f2c324ce790796e8b30ec30d,
+        type: 2}
+      propertyPath: pod1Mask
+      value: 
+      objectReference: {fileID: 1963924297}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e93aba20f2c324ce790796e8b30ec30d, type: 2}
   m_IsPrefabParent: 0
