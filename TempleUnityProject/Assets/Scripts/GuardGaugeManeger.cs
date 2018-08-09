@@ -34,9 +34,7 @@ public class GuardGaugeManeger : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        Debug.Log("Gaurd power:" + power );
-        
+	void Update () {        
         if (power < max) { //ガード回復
             power += Time.deltaTime * gainRate;
             SetScale(power / max);
