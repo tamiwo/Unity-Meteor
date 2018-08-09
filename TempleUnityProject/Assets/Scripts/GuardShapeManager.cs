@@ -5,6 +5,7 @@ using UnityEngine;
 public class GuardShapeManager : MonoBehaviour
 {
     public GameObject guardGauge;
+    public float force = 100;
 
     private GuardGaugeManeger guardManager;
 
@@ -43,13 +44,16 @@ public class GuardShapeManager : MonoBehaviour
     }
 
     //衝突処理
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         var obj = col.gameObject;
         Debug.Log("GuardShape Collision " + obj.tag);
         if (obj.tag == "Meteor")
         {
             guardManager.GuardMeteor();
+            Rigidbody2D body = obj.GetComponent<Rigidbody2D>();
+            body.velocity = new Vector2(0, 0);
+            body.AddForce(new Vector2(0,force));
             this.gameObject.SetActive(false);
         }
     }
