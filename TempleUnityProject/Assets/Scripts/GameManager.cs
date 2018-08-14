@@ -21,6 +21,35 @@ public class GameManager : MonoBehaviour {
     //設定値
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
 
+
+	//高さ変えたい検討
+	/*
+	float height = GameObject.
+
+
+	
+	var sr = object.GetComponent<SpriteRenderer>();
+	var width = sr.bounds.size.x;
+
+
+	float height = gameObject.GetComponent<Renderer>().bounds.size.y;
+	print ("height: " + height);
+
+
+	float height = gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+	print ("height: " + height);
+
+
+	Vector3 tmp = GameObject.Find("hogehoge").transform.position;
+	GameObject.Find("hogehoge").transform.position = new Vector3(tmp.x + 100, tmp.y, tmp.z);
+
+	float x = tmp.x;
+	float y = tmp.y;
+	float z = tmp.z;
+	*/
+
+
+
     //メンバ変数
     private int score = 0;
     private int nextScore = 100;
