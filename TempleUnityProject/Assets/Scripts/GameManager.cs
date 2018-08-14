@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public GameObject textGameOver;				//ゲームオーバーテキスト
@@ -90,9 +91,14 @@ public class GameManager : MonoBehaviour {
         RefreshScoreText();
     }
 
+	public void LoadTitle() {
+		SceneManager.LoadScene ("TitleScene");
+	}
+
 	public void GameOver(){
 		textGameOver.SetActive (true);
 		buttons.SetActive (false);
+		Invoke("LoadTitle", 1);
 	}
 
     //スコアてきすと更新
