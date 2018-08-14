@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OrbManager : MonoBehaviour {
 
+    public GameObject breakParticle;
+
     //オブジェクト参照
     private GameObject gameManager;
     private int HP;
@@ -43,6 +45,9 @@ public class OrbManager : MonoBehaviour {
         gameManager.GetComponent<GameManager>().GetOrb();
         HP -= damage;
         Debug.Log("Meteor HP:" + HP );
+        //パーティクル生成
+        breakParticle = (GameObject)Instantiate(breakParticle);
+        breakParticle.transform.SetPositionAndRotation(transform.position,transform.rotation);
         if ( HP <= 0 )
         {
             Destroy();
