@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour {
     private int score = 0;
     private int nextScore = 100;
 
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
 	// Use this for initialization
 	void Start () {
         //初期オーブ生成
