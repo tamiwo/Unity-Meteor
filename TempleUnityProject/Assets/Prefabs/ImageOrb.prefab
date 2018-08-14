@@ -46,7 +46,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874771dc053424da782b39776f478e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakParticle: {fileID: 1990674529716406, guid: 31031da00520b4e2288c10fbe3664eca,
+    type: 2}
 --- !u!222 &222126106098325602
 CanvasRenderer:
   m_ObjectHideFlags: 1
