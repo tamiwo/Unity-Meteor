@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour {
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
 
 
+
+
+
 	//高さ変えたい検討
 	/*
 	float height = GameObject.
@@ -72,6 +75,9 @@ public class GameManager : MonoBehaviour {
     public void CreateOrb () {
         GameObject orb = (GameObject)Instantiate(orbPrefab);        
         orb.transform.SetParent(canvasGame.transform, false);
+		//ポジション設定
+		Vector3 pos = createPosition;
+		createPosition = new Vector3 (pos.x, pos.y + meteorHP * 160, pos.z);
         orb.transform.localPosition = createPosition;
         // HPの設定
         orb.GetComponent<OrbManager>().SetHP(meteorHP);
