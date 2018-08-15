@@ -23,6 +23,13 @@ public class OrbManager : MonoBehaviour {
         //HPに合わせてサイズ調整
         baseScale = new Vector3(transform.localScale.x, transform.localScale.y);
         setScale();
+        //Scaleに合わせてポジション設定
+        //circle colliderの半径を取得する
+        float orbSize = GetComponent<CircleCollider2D>().radius;
+        //スケールをかけて実際の大きさを求める
+        orbSize *= transform.localScale.y;
+        Vector3 pos = transform.localPosition;
+        transform.localPosition = new Vector3( pos.x, pos.y + orbSize, pos.z);
 	}
 	
 	// Update is called once per frame
@@ -69,7 +76,6 @@ public class OrbManager : MonoBehaviour {
 
     void setScale(){
         transform.localScale = baseScale * (1.0f + (float)HP / 10.0f);
-        Debug.Log(transform.localScale.ToString());
     }
 
 }

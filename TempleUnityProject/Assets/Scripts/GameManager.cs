@@ -80,12 +80,10 @@ public class GameManager : MonoBehaviour {
     // オーブ生成
     public void CreateOrb () {
         GameObject orb = (GameObject)Instantiate(orbPrefab);        
-		//ポジション設定
-		Vector3 pos = createPosition;
-		createPosition = new Vector3 (pos.x, pos.y + meteorHP * 160, pos.z);
-        orb.transform.localPosition = createPosition;
         // HPの設定
         orb.GetComponent<OrbManager>().SetHP(meteorHP);
+        //ポジション設定
+        orb.transform.localPosition = createPosition;
         meteorHP += 1;
     }
 
