@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject UltraAttackShape;         //必殺技シェイプ
     public GameObject GuardShape;               //ガードシェイプ
     private Rigidbody2D rbody;					//プレイヤー制御用
-	private float jumpPower = 400;				//ジャンプ力
+	public float jumpPower = 200000;				//ジャンプ力
 	private bool goJump = false;				//ジャンプしたか否か
 	private bool canJump = false;				//地面に設置しているか否か
 	private Animator animator;					//アニメーター
