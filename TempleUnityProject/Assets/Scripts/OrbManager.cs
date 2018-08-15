@@ -9,6 +9,7 @@ public class OrbManager : MonoBehaviour {
     //オブジェクト参照
     private GameObject gameManager;
     private int HP;
+    private Vector3 baseScale;
 
     // 生成時にHPを指定する
     public void SetHP(int hp)
@@ -20,7 +21,8 @@ public class OrbManager : MonoBehaviour {
 	void Start () {
         gameManager = GameObject.Find("GameManager");
         //HPに合わせてサイズ調整
-        transform.localScale = new Vector3(HP, HP);
+        baseScale = new Vector3(transform.localScale.x, transform.localScale.y);
+        setScale();
 	}
 	
 	// Update is called once per frame
@@ -54,7 +56,8 @@ public class OrbManager : MonoBehaviour {
         }
         else
         {
-            transform.localScale = new Vector3(HP, HP);
+            setScale();
+            //transform.localScale *= (1 + HP / 10);// new Vector3(HP, HP);
         }
     }
 
@@ -62,6 +65,11 @@ public class OrbManager : MonoBehaviour {
     public void Destroy () {
         gameManager.GetComponent<GameManager>().CreateOrb();
         Destroy(this.gameObject);
+    }
+
+    void setScale(){
+        transform.localScale = baseScale * (1.0f + (float)HP / 10.0f);
+        Debug.Log(transform.localScale.ToString());
     }
 
 }
