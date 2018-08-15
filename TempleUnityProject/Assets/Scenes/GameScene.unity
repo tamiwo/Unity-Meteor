@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae09f76030e14c53bba71efa142c70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1.5
+  lifeTime: 0.2
   ultraGauge: {fileID: 1889129093}
 --- !u!61 &1300075378
 BoxCollider2D:
