@@ -131,7 +131,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
     //衝突処理
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col )
     {
         var obj = col.gameObject;
         Debug.Log("player collision" + obj.tag);
