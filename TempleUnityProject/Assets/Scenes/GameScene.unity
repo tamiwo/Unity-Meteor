@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 1070969772}
   - component: {fileID: 1070969773}
   - component: {fileID: 1070969775}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GuardShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,7 +1212,7 @@ GameObject:
   - component: {fileID: 1204725393}
   - component: {fileID: 1204725395}
   - component: {fileID: 1204725394}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: UltraAttackShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 1300075376}
   - component: {fileID: 1300075378}
   - component: {fileID: 1300075377}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: AttackShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
