@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour {
     //メンバ変数
     private int score = 0;
     private int nextScore = 100;
+    private int highScore = 0;
 
     void Awake()
     {
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour {
         //初期オーブ生成
         CreateOrb();
         RefreshScoreText();
+        //ハイスコア読み込み
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
 		RefreshHighScoreText();
 
 	}
@@ -103,6 +106,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GameOver(){
+        //ハイスコア更新
+        if( score > highScore ){
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore",highScore);
+            PlayerPrefs.Save();
+            RefreshHighScoreText();
+        }
 		textGameOver.SetActive (true);
 		buttons.SetActive (false);
 		Invoke("LoadTitle", 1);
@@ -116,6 +126,6 @@ public class GameManager : MonoBehaviour {
 
 	void RefreshHighScoreText(){
 		TextHighScore.GetComponent<Text>().text =
-			"BEST " + "000";
+            "BEST " + highScore;
 	}
 }
