@@ -28,7 +28,7 @@ public class GuardShapeManager : MonoBehaviour
 
     public void GuardShapeActive()
     {
-        if( guardManager.power > 0) { 
+        if( guardManager.guardEnable == true ) { 
             Debug.Log("GuardShape Activate.");
             this.gameObject.SetActive(true);
         }

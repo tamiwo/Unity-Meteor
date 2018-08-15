@@ -1065,7 +1065,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070969771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.99999994, y: 1.8, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 990207970}
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardGauge: {fileID: 415813163}
-  force: 100
+  force: 1000000
 --- !u!1 &1122636940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2086,7 @@ Prefab:
     - target: {fileID: 224484924791328588, guid: af0a919e3f424452b826ea00302a74ab,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224484924791328588, guid: af0a919e3f424452b826ea00302a74ab,
         type: 2}
@@ -2843,7 +2843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4745788517182536, guid: 7b889cbcd88c1415aa4abb49dadd4d59, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114452560921645550, guid: 7b889cbcd88c1415aa4abb49dadd4d59,
         type: 2}

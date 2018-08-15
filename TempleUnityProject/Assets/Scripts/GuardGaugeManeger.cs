@@ -14,6 +14,8 @@ public class GuardGaugeManeger : MonoBehaviour {
     public float gainRate = 5.0f;       //回復中の増加量[/s]
     public float lostByMeteor = 30.0f;   //隕石と接触したときに減らす量
     public float power = 0f;
+    public float guardRecoverPow = 30.0f; //ガード0後、再度ガードできるようになる量
+    public bool guardEnable = true;
 
     private Vector3 barScaleOrigin;
     private Vector3 pod1MaskScaleOrigin;
@@ -34,10 +36,16 @@ public class GuardGaugeManeger : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {
         if (power < max) { //ガード回復
             power += Time.deltaTime * gainRate;
             SetScale(power / max);
+        }
+        if(guardEnable == false){
+            if(power >= guardRecoverPow){
+                //ガード不可から回復
+                guardEnable = true;
+            }
         }
     }
 
@@ -52,6 +60,7 @@ public class GuardGaugeManeger : MonoBehaviour {
         SetScale(power / max);
         if (power < 0) {
             power = 0;
+            guardEnable = false;
             //アニメーション
         }
     }
