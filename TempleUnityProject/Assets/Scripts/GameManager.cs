@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public GameObject canvasGame;
     public GameObject textScore;
 	public GameObject TextHighScore;
+    public GameObject player;
 
     //設定値
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
@@ -82,8 +83,12 @@ public class GameManager : MonoBehaviour {
         GameObject orb = (GameObject)Instantiate(orbPrefab);        
         // HPの設定
         orb.GetComponent<OrbManager>().SetHP(meteorHP);
+        //playerの位置を基準に上に移動する
+        Vector3 pos = new Vector3(createPosition.x,
+                                  createPosition.y + player.transform.localPosition.y,
+                                  createPosition.z);
         //ポジション設定
-        orb.transform.localPosition = createPosition;
+        orb.transform.localPosition = pos;
         meteorHP += 1;
     }
 
