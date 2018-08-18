@@ -61,6 +61,9 @@ public class PlayerManager : MonoBehaviour {
             canJump = false;
             // レイヤー切り替え
             player.layer = LayerMask.NameToLayer("JumpingPlayer");
+			//SE
+			// ショット音を鳴らす
+			GetComponent<AudioSource> ().Play();
 		}
 		animator.SetBool ("isJump", true);
 	}
