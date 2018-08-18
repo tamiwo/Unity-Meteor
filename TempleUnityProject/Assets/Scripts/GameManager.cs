@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-	public GameObject textGameOver;				//ゲームオーバーテキスト
+	public GameObject panelGameOver;				//ゲームオーバーテキスト
 	public GameObject buttons;					//操作ボタン
     public int meteorHP = 2;
 
@@ -113,9 +113,8 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.Save();
             RefreshHighScoreText();
         }
-		textGameOver.SetActive (true);
+        panelGameOver.SetActive (true);
 		buttons.SetActive (false);
-		Invoke("LoadTitle", 1);
 	}
 
     //スコアてきすと更新
@@ -128,4 +127,12 @@ public class GameManager : MonoBehaviour {
 		TextHighScore.GetComponent<Text>().text =
             "BEST " + highScore;
 	}
+
+    public void Restart() {
+        // 現在のScene名を取得する
+        Scene loadScene = SceneManager.GetActiveScene();
+        // Sceneの読み直し
+        SceneManager.LoadScene(loadScene.name);
+    }
+
 }
