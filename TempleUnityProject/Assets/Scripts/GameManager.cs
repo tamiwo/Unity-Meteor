@@ -105,6 +105,10 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene ("TitleScene");
 	}
 
+	public void InLoadTitle() {
+		Invoke ("LoadTitle", 0.1f);
+	}
+
 	public void GameOver(){
         //ハイスコア更新
         if( score > highScore ){
@@ -134,5 +138,9 @@ public class GameManager : MonoBehaviour {
         // Sceneの読み直し
         SceneManager.LoadScene(loadScene.name);
     }
+
+	public void InRestart(){
+		Invoke ("Restart", 0.1f);
+	}
 
 }
