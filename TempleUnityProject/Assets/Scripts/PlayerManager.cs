@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour {
     public GameObject GuardShape;               //ガードシェイプ
     private Rigidbody2D rbody;					//プレイヤー制御用
 	public float jumpPower = 200000;				//ジャンプ力
-	private bool goJump = false;				//ジャンプしたか否か
 	private bool canJump = false;				//地面に設置しているか否か
 	private Animator animator;					//アニメーター
 
@@ -41,10 +40,6 @@ public class PlayerManager : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.DownArrow) ){
             GuardEnd();
         }
-		canJump = Physics2D.Linecast (transform.position -
-		(transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer) ||
-		Physics2D.Linecast (transform.position - (transform.right * 0.3f), transform.position - (transform.up * 0.1f), GroundLayer);
-		JumpingPlayer ();
 		if (!canJump) {
 			animator.SetBool ("isJump", false);
 		}
@@ -52,22 +47,8 @@ public class PlayerManager : MonoBehaviour {
 	}		
 
 	void FixedUpdate() {
-		//ジャンプ処理
-		if (goJump) {
-			rbody.AddForce (Vector2.up * jumpPower);
-			goJump = false;
-		}
 	}
-
-	void JumpingPlayer(){
-		//ジャンプ中のレイヤー切り替え
-		if (!canJump) {
-			player.layer = LayerMask.NameToLayer ("JumpingPlayer");
-		} else if (canJump) {
-			player.layer = LayerMask.NameToLayer ("Player");
-		}
-	}
-		
+    		
 	//プレイヤーオブジェクト削除処理
 	void DestroyPlayer(){
 		Destroy (this.gameObject);
@@ -75,8 +56,11 @@ public class PlayerManager : MonoBehaviour {
 
 	//ジャンプ
 	public void Jump(){
-		if (canJump) {
-			goJump = true;
+        if (canJump) {
+            rbody.AddForce(Vector2.up * jumpPower);
+            canJump = false;
+            // レイヤー切り替え
+            player.layer = LayerMask.NameToLayer("JumpingPlayer");
 		}
 		animator.SetBool ("isJump", true);
 	}
@@ -99,7 +83,8 @@ public class PlayerManager : MonoBehaviour {
     {
         Debug.Log("Ultra Attack");
         //ジャンプ
-        goJump = true;
+        canJump = true;
+        Jump();
         //アニメーション
         player.GetComponent<Animator>().SetTrigger("isJumpAttack");
         //UltraAttackShape有効化
@@ -138,6 +123,10 @@ public class PlayerManager : MonoBehaviour {
 
         if (obj.tag == "Ground")
         {
+            //レイヤー切り替え
+            player.layer = LayerMask.NameToLayer("Player");
+            //ジャンプ可
+            canJump = true;
             //UrtraAttackShape無効化
             UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
         }
