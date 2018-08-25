@@ -134,11 +134,7 @@ public class PlayerManager : MonoBehaviour {
         guardShape.GuardShapeActive();
         if ( GuardShape.activeSelf == true ) //ガード可能
         {
-		    if (canJump) {
-			    animator.SetBool ("isGuard", true);
-		    } else if (!canJump) {
-			    animator.SetBool ("isJumpGuard", true);
-		    }
+		    animator.SetBool ("isGuard", true);
         }
     }
 
@@ -146,7 +142,6 @@ public class PlayerManager : MonoBehaviour {
     {
         GuardShape.GetComponent<GuardShapeManager>().GuardShapeInactive();
 		animator.SetBool ("isGuard", false);
-		animator.SetBool ("isJumpGuard", false);
     }
 
     //衝突処理
