@@ -172,10 +172,19 @@ public class PlayerManager : MonoBehaviour {
         //状態が変わった時の処理
         switch( status ){
             case State.Standing:
+                animator.SetBool("isStand", true);
+                animator.SetBool("isJump", false);
+                animator.SetBool("isFall", false);
                 break;
             case State.Jumping:
+                animator.SetBool("isStand", false);
+                animator.SetBool("isJump", true);
+                animator.SetBool("isFall", false);
                 break;
             case State.Falling:
+                animator.SetBool("isStand", false);
+                animator.SetBool("isJump", false);
+                animator.SetBool("isFall", true);
                 break;
             default:
                 Debug.Log("nothing to do:" + status);
