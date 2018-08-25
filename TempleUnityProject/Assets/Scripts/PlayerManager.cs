@@ -40,12 +40,7 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Squat();
-        }
-        else{
-            if(status == State.Squatting){
-                Jump();
-            }
+            Jump();
         }
         if (Input.GetKeyDown(KeyCode.A)){
             Attack();
