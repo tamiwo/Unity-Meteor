@@ -12,9 +12,11 @@ public class PlayerManager : MonoBehaviour {
     public GameObject UltraAttackShape;         //必殺技シェイプ
     public GameObject GuardShape;               //ガードシェイプ
     private Rigidbody2D rbody;					//プレイヤー制御用
-	public float jumpPower = 200000;				//ジャンプ力
+	public float jumpPower = 200000;			//ジャンプ力
 	private bool canJump = false;				//地面に設置しているか否か
 	private Animator animator;					//アニメーター
+	private AudioSource sound01;				//SE音１
+	private AudioSource sound02;				//SE音２
 
 
 
@@ -22,6 +24,10 @@ public class PlayerManager : MonoBehaviour {
     void Start () {
 		rbody = GetComponent<Rigidbody2D> ();	
 		animator = GetComponent<Animator> ();
+		//AudioSourceコンポーネントを取得し、変数に格納
+		AudioSource[] audioSources = GetComponents<AudioSource>();
+		sound01 = audioSources[0];
+		sound02 = audioSources[1];
 	}
 	
 	// Update is called once per frame
@@ -62,9 +68,9 @@ public class PlayerManager : MonoBehaviour {
             // レイヤー切り替え
             player.layer = LayerMask.NameToLayer("JumpingPlayer");
 			//SE
-			// ショット音を鳴らす
-			GetComponent<AudioSource> ().Play();
-		}
+			// 音を鳴らす
+			sound01.PlayOneShot(sound01.clip);
+			}
 		animator.SetBool ("isJump", true);
 	}
 
@@ -130,6 +136,8 @@ public class PlayerManager : MonoBehaviour {
             player.layer = LayerMask.NameToLayer("Player");
             //ジャンプ可
             canJump = true;
+			// 音を鳴らす
+			sound02.PlayOneShot(sound02.clip);
             //UrtraAttackShape無効化
             UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
         }
