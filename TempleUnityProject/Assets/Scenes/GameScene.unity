@@ -2431,8 +2431,8 @@ MonoBehaviour:
   tap:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1300075377}
-        m_MethodName: AttackShapeActive
+      - m_Target: {fileID: 990207971}
+        m_MethodName: Attack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
