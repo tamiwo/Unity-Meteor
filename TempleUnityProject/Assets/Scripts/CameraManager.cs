@@ -12,10 +12,7 @@ public class CameraManager : MonoBehaviour {
     private Vector3 _offset;
 
 	// Use this for initialization
-	void Start () {
-        _name = follow.name;
-        _offset = follow.transform.position;
-	}
+	void Start () {	}
 	
 	// Update is called once per frame
     void Update () {
