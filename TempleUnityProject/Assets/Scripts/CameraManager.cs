@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,9 @@ public class CameraManager : MonoBehaviour {
     private Vector3 _offset;
 
 	// Use this for initialization
-	void Start () {	}
+	void Start () {	
+		_name = follow.name;
+		_offset = follow.transform.position;}
 	
 	// Update is called once per frame
     void Update () {
