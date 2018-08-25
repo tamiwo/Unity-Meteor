@@ -77,7 +77,9 @@ public class PlayerManager : MonoBehaviour {
 
     //しゃがみ
     public void Squat(){
-        setStatus(State.Squatting);
+        if (canJump){
+            setStatus(State.Squatting);
+        }
     }
 
 	//ジャンプ
