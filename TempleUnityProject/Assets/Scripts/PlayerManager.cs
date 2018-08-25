@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour {
 
     private enum State {
         Standing,
+        Squatting,
         Jumping,
         Falling,
     }
@@ -39,8 +40,12 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Up key down");
-            Jump();
+            Squat();
+        }
+        else{
+            if(status == State.Squatting){
+                Jump();
+            }
         }
         if (Input.GetKeyDown(KeyCode.A)){
             Attack();
@@ -52,11 +57,11 @@ public class PlayerManager : MonoBehaviour {
             GuardEnd();
         }
 
-        checkFall();
+        CheckFall();
 	}
 
     // 落下開始チェック
-    void checkFall(){
+    void CheckFall(){
         //すでに落下中なら何もしない
         if (status == State.Falling) return;
 
@@ -74,6 +79,11 @@ public class PlayerManager : MonoBehaviour {
 	void DestroyPlayer(){
 		Destroy (this.gameObject);
 	}
+
+    //しゃがみ
+    public void Squat(){
+        setStatus(State.Squatting);
+    }
 
 	//ジャンプ
 	public void Jump(){
@@ -94,6 +104,7 @@ public class PlayerManager : MonoBehaviour {
 		//GameObject AttackShapePref = (GameObject)Instantiate (AttackShape);
 		AttackShape.transform.SetParent (player.transform, false);
         AttackShape.GetComponent<AttackShapeManager>().AttackShapeActive();
+        /*
 		AnimatorStateInfo stateInfo = player.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0);
 		if (canJump) {
 			player.GetComponent<Animator> ().SetTrigger ("isStandAttack");
@@ -101,6 +112,8 @@ public class PlayerManager : MonoBehaviour {
 			player.GetComponent<Animator> ().SetTrigger ("isJumpAttack");
 			Debug.Log("isJump ON");
 		}
+		*/
+        animator.SetTrigger("isAttack");
 	}
 
     public void UltraAttack()
@@ -166,26 +179,30 @@ public class PlayerManager : MonoBehaviour {
         Debug.Log("state " + status + " to " + state); 
         status = state;
 
+        //アニメーションは
+        animator.SetBool("isStand", false);
+        animator.SetBool("isSquat", false);
+        animator.SetBool("isJump", false);
+        animator.SetBool("isFall", false);
+
         //状態が変わった時の処理
         switch( status ){
             case State.Standing:
                 animator.SetBool("isStand", true);
-                animator.SetBool("isJump", false);
-                animator.SetBool("isFall", false);
+                break;
+            case State.Squatting:
+                animator.SetBool("isSquat", true);
                 break;
             case State.Jumping:
-                animator.SetBool("isStand", false);
-                animator.SetBool("isJump", true);
-                animator.SetBool("isFall", false);
+                animator.SetBool("isJump", true);;
                 break;
             case State.Falling:
-                animator.SetBool("isStand", false);
-                animator.SetBool("isJump", false);
                 animator.SetBool("isFall", true);
                 break;
             default:
                 Debug.Log("nothing to do:" + status);
                 break;
         }
+
     }
 }
