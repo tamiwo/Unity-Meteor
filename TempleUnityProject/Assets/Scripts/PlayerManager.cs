@@ -79,7 +79,7 @@ public class PlayerManager : MonoBehaviour {
     public void Squat(){
         //ガードキャンセル
         GuardEnd();
-        if (canJump){
+        if (status == State.Standing){
             setStatus(State.Squatting);
         }
     }
