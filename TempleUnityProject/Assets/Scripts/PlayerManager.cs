@@ -51,9 +51,6 @@ public class PlayerManager : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.DownArrow) ){
             GuardEnd();
         }
-		if (!canJump) {
-			animator.SetBool ("isJump", false);
-		}
 
         checkFall();
 	}
