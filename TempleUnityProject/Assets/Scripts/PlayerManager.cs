@@ -130,6 +130,9 @@ public class PlayerManager : MonoBehaviour {
 
     public void GuardStart()
     {
+        if(status == State.Squatting){
+            setStatus(State.Standing);
+        }
         //しゃがみキャンセル
         setStatus(State.Standing);
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
