@@ -14,17 +14,25 @@ public class TouchManager : MonoBehaviour {
     [SerializeField]
     private UnityEvent swipeUpEnd;
     [SerializeField]
+    private UnityEvent swipeUpCancel;
+    [SerializeField]
     private UnityEvent swipeDownStart;
     [SerializeField]
     private UnityEvent swipeDownEnd;
+    [SerializeField]
+    private UnityEvent swipeDownCancel;
     [SerializeField]
     private UnityEvent swipeRightStart;
     [SerializeField]
     private UnityEvent swipeRightEnd;
     [SerializeField]
+    private UnityEvent swipeRightCancel;
+    [SerializeField]
     private UnityEvent swipeLeftStart;
     [SerializeField]
     private UnityEvent swipeLeftEnd;
+    [SerializeField]
+    private UnityEvent swipeLeftCancel;
     [SerializeField]
     private UnityEvent tap;
 
@@ -82,6 +90,20 @@ public class TouchManager : MonoBehaviour {
         // 方向が変わった
         if (_swipeDir != dir)
         {
+            switch(_swipeDir){
+                case Direction.UP:
+                    swipeUpCancel.Invoke();
+                    break;
+                case Direction.DOWN:
+                    swipeDownCancel.Invoke();
+                    break;
+                case Direction.RIGHT:
+                    swipeRightCancel.Invoke();
+                    break;
+                case Direction.LEFT:
+                    swipeLeftCancel.Invoke();
+                    break;
+            }
             _swipeDir = dir;
             Debug.Log("Swipe " + moveVector + " (" + dir + ")");
             switch (dir)

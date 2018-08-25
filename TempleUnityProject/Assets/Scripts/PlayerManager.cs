@@ -20,7 +20,6 @@ public class PlayerManager : MonoBehaviour {
 
     private enum State {
         Standing,
-        Squatting,
         Jumping,
         Falling,
     }
@@ -77,11 +76,12 @@ public class PlayerManager : MonoBehaviour {
 
     //しゃがみ
     public void Squat(){
-        //ガードキャンセル
-        GuardEnd();
-        if (status == State.Standing){
-            setStatus(State.Squatting);
-        }
+        animator.SetBool("isSquat", true);
+    }
+    //しゃがみ
+    public void SquatCancel()
+    {
+        animator.SetBool("isSquat", false);
     }
 
 	//ジャンプ
@@ -94,6 +94,7 @@ public class PlayerManager : MonoBehaviour {
 			//SE
 			// 音を鳴らす
 			sound01.PlayOneShot(sound01.clip);
+            animator.SetBool("isSquat", false);
             setStatus(State.Jumping);
 		}
 	}
@@ -130,11 +131,6 @@ public class PlayerManager : MonoBehaviour {
 
     public void GuardStart()
     {
-        if(status == State.Squatting){
-            setStatus(State.Standing);
-        }
-        //しゃがみキャンセル
-        setStatus(State.Standing);
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
         GuardShape.transform.SetParent(player.transform, false);
         GuardShapeManager guardShape = GuardShape.GetComponent<GuardShapeManager>();
@@ -180,7 +176,6 @@ public class PlayerManager : MonoBehaviour {
 
         //アニメーションは
         animator.SetBool("isStand", false);
-        animator.SetBool("isSquat", false);
         animator.SetBool("isJump", false);
         animator.SetBool("isFall", false);
 
@@ -188,9 +183,6 @@ public class PlayerManager : MonoBehaviour {
         switch( status ){
             case State.Standing:
                 animator.SetBool("isStand", true);
-                break;
-            case State.Squatting:
-                animator.SetBool("isSquat", true);
                 break;
             case State.Jumping:
                 animator.SetBool("isJump", true);;
