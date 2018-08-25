@@ -8,12 +8,17 @@ public class GuardShapeManager : MonoBehaviour
     public float force = 100;
 
     private GuardGaugeManeger guardManager;
+	private AudioSource sound01;			//SE
+	public GameObject ParticleGuard;		//パーティクル
 
     // Use this for initialization
     void Start()
     {
         guardManager = guardGauge.GetComponent<GuardGaugeManeger>();
         GuardShapeInactive();
+		//AudioSourceコンポーネントを取得し、変数に格納
+		AudioSource[] audioSources = GetComponents<AudioSource>();
+		sound01 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +56,9 @@ public class GuardShapeManager : MonoBehaviour
         if (obj.tag == "Meteor")
         {
             guardManager.GuardMeteor();
+			//パーティクル生成
+			ParticleGuard = (GameObject)Instantiate(ParticleGuard);
+			ParticleGuard.transform.SetPositionAndRotation(transform.position,transform.rotation);
             Rigidbody2D body = obj.GetComponent<Rigidbody2D>();
             body.velocity = new Vector2(0, 0);
             body.AddForce(new Vector2(0,force));
