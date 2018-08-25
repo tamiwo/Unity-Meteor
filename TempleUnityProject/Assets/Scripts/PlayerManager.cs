@@ -77,6 +77,8 @@ public class PlayerManager : MonoBehaviour {
 
     //しゃがみ
     public void Squat(){
+        //ガードキャンセル
+        GuardEnd();
         if (canJump){
             setStatus(State.Squatting);
         }
@@ -128,6 +130,8 @@ public class PlayerManager : MonoBehaviour {
 
     public void GuardStart()
     {
+        //しゃがみキャンセル
+        setStatus(State.Standing);
         //GuardShapePref = (GameObject)Instantiate(GuardShape);
         GuardShape.transform.SetParent(player.transform, false);
         GuardShapeManager guardShape = GuardShape.GetComponent<GuardShapeManager>();
