@@ -18,7 +18,12 @@ public class PlayerManager : MonoBehaviour {
 	private AudioSource sound01;				//SE音１
 	private AudioSource sound02;				//SE音２
 
-
+    private enum State {
+        Standing,
+        Jumping,
+        Falling,
+    }
+    private State status = State.Standing;
 
     // Use this for initialization
     void Start () {
@@ -50,7 +55,20 @@ public class PlayerManager : MonoBehaviour {
 			animator.SetBool ("isJump", false);
 		}
 
-	}		
+        checkFall();
+	}
+
+    // 落下開始チェック
+    void checkFall(){
+        //すでに落下中なら何もしない
+        if (status == State.Falling) return;
+
+        //Y方向の速度がマイナスで落下開始
+        if(rbody.velocity.y < 0){
+            setStatus(State.Falling); 
+        }
+    }
+
 
 	void FixedUpdate() {
 	}
@@ -70,8 +88,8 @@ public class PlayerManager : MonoBehaviour {
 			//SE
 			// 音を鳴らす
 			sound01.PlayOneShot(sound01.clip);
-			}
-		animator.SetBool ("isJump", true);
+            setStatus(State.Jumping);
+		}
 	}
 
 	//アタック
@@ -132,6 +150,8 @@ public class PlayerManager : MonoBehaviour {
 
         if (obj.tag == "Ground")
         {
+            //着地
+            setStatus(State.Standing);
             //レイヤー切り替え
             player.layer = LayerMask.NameToLayer("Player");
             //ジャンプ可
@@ -140,6 +160,26 @@ public class PlayerManager : MonoBehaviour {
 			sound02.PlayOneShot(sound02.clip);
             //UrtraAttackShape無効化
             UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
+
+        }
+    }
+
+    void setStatus( State state ){
+
+        Debug.Log("state " + status + " to " + state); 
+        status = state;
+
+        //状態が変わった時の処理
+        switch( status ){
+            case State.Standing:
+                break;
+            case State.Jumping:
+                break;
+            case State.Falling:
+                break;
+            default:
+                Debug.Log("nothing to do:" + status);
+                break;
         }
     }
 }
