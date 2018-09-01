@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GuardGaugeManeger : MonoBehaviour {
 
+    public GameObject pod;
     public GameObject barMask;
     public GameObject pod1Mask;
     public GameObject pod2Mask;
@@ -21,6 +22,8 @@ public class GuardGaugeManeger : MonoBehaviour {
     private Vector3 pod1MaskScaleOrigin;
     private Vector3 pod2MaskScaleOrigin;
 
+    private Animator podAnimator;
+
 	// Use this for initialization
     void Start () {
         //初期値(100%)の長さを取得する
@@ -33,6 +36,7 @@ public class GuardGaugeManeger : MonoBehaviour {
 
         power = dafault;
         SetScale(power / max);
+        podAnimator = pod.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +49,7 @@ public class GuardGaugeManeger : MonoBehaviour {
             if(power >= guardRecoverPow){
                 //ガード不可から回復
                 guardEnable = true;
+                podAnimator.SetBool("isBroken", false);
             }
         }
     }
@@ -62,6 +67,7 @@ public class GuardGaugeManeger : MonoBehaviour {
             power = 0;
             guardEnable = false;
             //アニメーション
+            podAnimator.SetBool("isBroken", true);
         }
     }
 
