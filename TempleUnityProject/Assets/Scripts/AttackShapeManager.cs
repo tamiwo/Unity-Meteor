@@ -10,9 +10,13 @@ public class AttackShapeManager : MonoBehaviour {
     public GameObject ultraGauge;
 
 	public GameObject ParticleAttack;
+    public GameObject player;
+
+    private PlayerManager playerManager;
 
 	// Use this for initialization
 	void Start () {
+        playerManager = player.GetComponent<PlayerManager>();
 	}
 
 	// Update is called once per frame
@@ -40,6 +44,8 @@ public class AttackShapeManager : MonoBehaviour {
             particle.transform.SetPositionAndRotation(transform.position,transform.rotation);
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
+            //プレイヤーの処理
+            playerManager.BreakMeteor();
             //AttackShape無効化
             this.gameObject.SetActive(false);
             //ultraGauge増加

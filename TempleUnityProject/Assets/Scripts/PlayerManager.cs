@@ -214,4 +214,11 @@ public class PlayerManager : MonoBehaviour {
             canJump = true;
         }
     }
+
+    public void BreakMeteor(){
+        //落下中なら速度を0にする
+        if (rbody.velocity.y < 0){
+            rbody.velocity = new Vector2(0.0f, 0.0f);
+        }
+    }
 }

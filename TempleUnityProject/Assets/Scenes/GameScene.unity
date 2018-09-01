@@ -2032,6 +2032,7 @@ MonoBehaviour:
   ultraGauge: {fileID: 1889129093}
   ParticleAttack: {fileID: 1871196947037144, guid: 5a41c0f3d2da740d2a0eb688b4eb112c,
     type: 2}
+  player: {fileID: 990207965}
 --- !u!61 &1300075378
 BoxCollider2D:
   m_ObjectHideFlags: 0
