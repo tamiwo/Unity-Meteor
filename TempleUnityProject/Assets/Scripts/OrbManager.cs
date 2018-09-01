@@ -55,8 +55,8 @@ public class OrbManager : MonoBehaviour {
         HP -= damage;
         Debug.Log("Meteor HP:" + HP );
         //パーティクル生成
-        breakParticle = (GameObject)Instantiate(breakParticle);
-        breakParticle.transform.SetPositionAndRotation(transform.position,transform.rotation);
+        GameObject particle = Instantiate(breakParticle);
+        particle.transform.SetPositionAndRotation(transform.position,transform.rotation);
         if ( HP <= 0 )
         {
             Destroy();
