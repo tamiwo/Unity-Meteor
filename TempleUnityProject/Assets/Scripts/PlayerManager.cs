@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject GuardShape;               //ガードシェイプ
     private Rigidbody2D rbody;					//プレイヤー制御用
 	public float jumpPower = 200000;			//ジャンプ力
-	private bool canJump = false;				//地面に設置しているか否か
+    private bool canJump = false;				//地面に設置しているか否か
 	private Animator animator;					//アニメーター
 	private AudioSource sound01;				//SE音１
 	private AudioSource sound02;				//SE音２
@@ -76,7 +76,9 @@ public class PlayerManager : MonoBehaviour {
 
     //しゃがみ
     public void Squat(){
-        animator.SetBool("isSquat", true);
+        if( canJump == true ){
+            animator.SetBool("isSquat", true);
+        }
     }
     //しゃがみ
     public void SquatCancel()
@@ -113,6 +115,7 @@ public class PlayerManager : MonoBehaviour {
 			Debug.Log("isJump ON");
 		}
 		*/
+        animator.SetBool("isSquat", false);
         animator.SetTrigger("isAttack");
 	}
 
@@ -137,6 +140,7 @@ public class PlayerManager : MonoBehaviour {
         guardShape.GuardShapeActive();
         if ( GuardShape.activeSelf == true ) //ガード可能
         {
+            animator.SetBool("isSquat", false);
 		    animator.SetBool ("isGuard", true);
         }
     }
@@ -195,5 +199,16 @@ public class PlayerManager : MonoBehaviour {
                 break;
         }
 
+    }
+
+    public void CollisionMeteor(){
+        canJump = false;
+    }
+
+    public void LeaveMeteor()
+    {
+        if( status == State.Standing ){
+            canJump = true;
+        }
     }
 }
