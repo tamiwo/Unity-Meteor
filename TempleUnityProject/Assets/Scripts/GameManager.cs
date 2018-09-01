@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
     public GameObject textScore;
 	public GameObject TextHighScore;
     public GameObject player;
+    public GameObject gameoverScore;
+    public GameObject gameoverHighScore;
 
     //設定値
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
@@ -119,6 +121,11 @@ public class GameManager : MonoBehaviour {
         }
         panelGameOver.SetActive (true);
 		buttons.SetActive (false);
+        textScore.SetActive(false);
+        TextHighScore.SetActive(false);
+        //ゲームオーバー画面のスコア
+        gameoverScore.GetComponent<Text>().text = score.ToString();
+        gameoverHighScore.GetComponent<Text>().text = "Best\n" + highScore;
 	}
 
     //スコアてきすと更新
