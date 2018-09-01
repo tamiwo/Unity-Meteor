@@ -39,6 +39,9 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            Squat();
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow)){
             Jump();
         }
         if (Input.GetKeyDown(KeyCode.A)){
