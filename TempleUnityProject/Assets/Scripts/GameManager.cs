@@ -123,8 +123,7 @@ public class GameManager : MonoBehaviour {
 
     //スコアてきすと更新
     void RefreshScoreText (){
-        textScore.GetComponent<Text>().text =
-            score + "/" + nextScore;
+        textScore.GetComponent<Text>().text = score.ToString();
     }
 
 	void RefreshHighScoreText(){
