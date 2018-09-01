@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleSceneManager : MonoBehaviour {
+public class CreditSceneManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +15,7 @@ public class TitleSceneManager : MonoBehaviour {
 		
 	}
 
-    public void LoadGameScene(){
-        SceneManager.LoadScene("GameScene");
-    }
-    public void LoadCreditScene()
-    {
-        SceneManager.LoadScene("CreditScene");
+    public void LoadTitleScene(){
+        SceneManager.LoadScene("TitleScene");
     }
 }
