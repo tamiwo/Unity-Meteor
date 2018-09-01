@@ -36,8 +36,8 @@ public class AttackShapeManager : MonoBehaviour {
         var obj = col.gameObject;
         if (obj.tag == "Meteor") {
 			//パーティクル生成
-			ParticleAttack = (GameObject)Instantiate(ParticleAttack);
-			ParticleAttack.transform.SetPositionAndRotation(transform.position,transform.rotation);
+			GameObject particle = (GameObject)Instantiate(ParticleAttack);
+            particle.transform.SetPositionAndRotation(transform.position,transform.rotation);
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
             //AttackShape無効化
