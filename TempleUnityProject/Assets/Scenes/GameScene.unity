@@ -3891,7 +3891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 182578656}
   player: {fileID: 990207965}
-  Explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
+  Explosion: {fileID: 1368269214474140, guid: f8e3f56eab60648a3bb50cd4139a4ab0, type: 2}
 --- !u!4 &1864896709 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4159516001862254, guid: e93aba20f2c324ce790796e8b30ec30d,
