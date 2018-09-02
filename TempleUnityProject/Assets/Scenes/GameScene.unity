@@ -155,7 +155,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4228108180816590, guid: d0f7f7fb7d42942ec8971f2b52ea8fa9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -263,6 +263,7 @@ MonoBehaviour:
   player: {fileID: 990207965}
   gameoverScore: {fileID: 1743588448}
   gameoverHighScore: {fileID: 671415853}
+  Explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
   createPosition: {x: 0, y: 1500, z: 0}
 --- !u!4 &182578658
 Transform:
@@ -1351,8 +1352,8 @@ Transform:
   - {fileID: 1300075376}
   - {fileID: 1070969772}
   - {fileID: 1204725393}
-  - {fileID: 364186901}
   - {fileID: 1561443054}
+  - {fileID: 364186901}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2255,6 +2256,7 @@ MonoBehaviour:
   ParticleAttack: {fileID: 1871196947037144, guid: 5a41c0f3d2da740d2a0eb688b4eb112c,
     type: 2}
   player: {fileID: 990207965}
+  Explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
 --- !u!61 &1300075378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2604,7 +2606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 990207970}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1561443055
 MonoBehaviour:

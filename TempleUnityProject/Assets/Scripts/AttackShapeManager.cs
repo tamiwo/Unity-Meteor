@@ -42,6 +42,7 @@ public class AttackShapeManager : MonoBehaviour {
 			//パーティクル生成
 			GameObject particle = (GameObject)Instantiate(ParticleAttack);
             particle.transform.SetPositionAndRotation(transform.position,transform.rotation);
+
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
             //プレイヤーの処理
