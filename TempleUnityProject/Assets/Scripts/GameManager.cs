@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject gameoverScore;
     public GameObject gameoverHighScore;
+	public GameObject Explosion;
 
     //設定値
     public Vector3 createPosition = new Vector3(0f, 800.0f, 0f);
@@ -119,6 +120,10 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.Save();
             RefreshHighScoreText();
         }
+		//爆発エフェクト生成
+		Explosion = (GameObject)Instantiate(Explosion);
+		Explosion.transform.SetPositionAndRotation(transform.position,transform.rotation);
+
         panelGameOver.SetActive (true);
 		buttons.SetActive (false);
         textScore.SetActive(false);
