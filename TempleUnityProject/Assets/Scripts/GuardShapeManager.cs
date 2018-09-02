@@ -10,6 +10,9 @@ public class GuardShapeManager : MonoBehaviour
     private GuardGaugeManeger guardManager;
 	private AudioSource sound01;			//SE
 	public GameObject ParticleGuard;		//パーティクル
+    public GameObject player;
+    public float playerForce = 100;
+    private Rigidbody2D playerRbody;
 
     // Use this for initialization
     void Start()
@@ -19,6 +22,7 @@ public class GuardShapeManager : MonoBehaviour
 		//AudioSourceコンポーネントを取得し、変数に格納
 		AudioSource[] audioSources = GetComponents<AudioSource>();
 		sound01 = GetComponent<AudioSource>();
+        playerRbody = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -63,6 +67,8 @@ public class GuardShapeManager : MonoBehaviour
             body.velocity = new Vector2(0, 0);
             body.AddForce(new Vector2(0,force));
             this.gameObject.SetActive(false);
+            playerRbody.velocity = new Vector2(0,0);
+            playerRbody.AddForce(new Vector2(0, -playerForce));
         }
     }
 }

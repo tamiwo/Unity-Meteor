@@ -1654,6 +1654,8 @@ MonoBehaviour:
   force: 500000
   ParticleGuard: {fileID: 1582766343378590, guid: f490d9ea71d8749c6a914c62e974f358,
     type: 2}
+  player: {fileID: 990207965}
+  playerForce: 200000
 --- !u!1001 &1119611522
 Prefab:
   m_ObjectHideFlags: 0
