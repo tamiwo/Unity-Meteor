@@ -128,6 +128,8 @@ public class PlayerManager : MonoBehaviour {
         //ジャンプ
         canJump = true;
         Jump();
+        // 隕石と衝突しないようにレイヤーにする
+        player.layer = LayerMask.NameToLayer("Player");
         //アニメーション
         player.GetComponent<Animator>().SetTrigger("isJumpAttack");
         //UltraAttackShape有効化
