@@ -5,6 +5,7 @@ using UnityEngine;
 public class OutZoneManager : MonoBehaviour {
 	public GameObject gameManager;				//ゲームマネージャー
 	public GameObject player;					//プレイヤー
+    public GameObject Explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,8 @@ public class OutZoneManager : MonoBehaviour {
 		if (col.gameObject.tag == "Meteor") {
 			gameManager.GetComponent<GameManager> ().GameOver ();
 			DestroyPlayer ();
+            GameObject explosion = (GameObject)Instantiate(Explosion);
+            explosion.transform.SetPositionAndRotation(col.gameObject.transform.position, transform.rotation);
 		}
 	}
 
