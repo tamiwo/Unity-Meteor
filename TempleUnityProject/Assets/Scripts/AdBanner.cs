@@ -56,7 +56,7 @@ public class AdBanner : MonoBehaviour
         //int fromLeft = 37;
         //int fromTop = 370;
         AdSize size = new AdSize(adSize.x, adSize.y);
-        banner = new BannerView(adUnitId, size, offset.x, offset.y);
+        banner = new BannerView(adUnitId, size, AdPosition.Bottom);
 
         // Register for ad events.
         banner.OnAdLoaded += HandleAdLoaded;
