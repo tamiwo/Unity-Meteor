@@ -15,6 +15,7 @@ public class OrbManager : MonoBehaviour {
     public void SetHP(int hp)
     {
         HP = hp;
+        GetComponent<Rigidbody2D>().gravityScale += HP;
     }
 
 	// Use this for initialization
