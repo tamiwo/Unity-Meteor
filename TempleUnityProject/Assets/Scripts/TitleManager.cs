@@ -18,7 +18,10 @@ public class TitleManager : MonoBehaviour {
 
 	//スタートボタンを押した
 	public void PushStartButton () {
-		SceneManager.LoadScene ("GameScene");	//ステージ選択シーンへ
+		//SceneManager.LoadScene ("GameScene");	//ステージ選択シーンへ
+		SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+		// Debug.Log(SceneManager.UnloadScene("A"));
+		Resources.UnloadUnusedAssets();
 		Debug.Log("push start button");
 	}
 }
