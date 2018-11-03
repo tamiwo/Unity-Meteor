@@ -10,6 +10,7 @@ public class OrbManager : MonoBehaviour {
     private GameObject gameManager;
     private int HP;
     private Vector3 baseScale;
+    private Rigidbody2D rbody;
 
     // 生成時にHPを指定する
     public void SetHP(int hp)
@@ -20,6 +21,7 @@ public class OrbManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        rbody = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager");
         //HPに合わせてサイズ調整
         baseScale = new Vector3(transform.localScale.x, transform.localScale.y);
@@ -35,7 +37,10 @@ public class OrbManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log(rbody.gravityScale);
+        float deltaVelocity = -9.81f * rbody.gravityScale * Time.deltaTime;
+        rbody.velocity = new Vector2(0,deltaVelocity + rbody.velocity.y);
+        //Debug.Log(rbody.velocity);
 	}
 
     //オーブ取得
