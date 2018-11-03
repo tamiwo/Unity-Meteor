@@ -93,9 +93,6 @@ public class PlayerManager : MonoBehaviour {
 	public void Jump(){
         if (canJump) {
             rbody.AddForce(Vector2.up * jumpPower);
-            canJump = false;
-            // レイヤー切り替え
-            player.layer = LayerMask.NameToLayer("JumpingPlayer");
 			//SE
 			// 音を鳴らす
 			sound01.PlayOneShot(sound01.clip);
@@ -175,6 +172,25 @@ public class PlayerManager : MonoBehaviour {
             //UrtraAttackShape無効化
             UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
 
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        var obj = col.gameObject;
+        //Debug.Log("player collisionStay" + obj.tag);
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        var obj = col.gameObject;
+        Debug.Log("player collisionExit" + obj.tag);
+        if (obj.tag == "Ground")
+        {
+            //ジャンプ可
+            canJump = false;
+            // レイヤー切り替え
+            player.layer = LayerMask.NameToLayer("JumpingPlayer");
         }
     }
 
