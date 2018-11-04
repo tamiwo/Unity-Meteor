@@ -1684,6 +1684,8 @@ MonoBehaviour:
   jumpPower: 200000
   jumpParticle: {fileID: 1529655142990852, guid: 1b18a74824b4748bfb1cbe65c41d048d,
     type: 2}
+  landingParticle: {fileID: 1335088138715038, guid: 3ef047222641d42689ede3a6f3b26b5f,
+    type: 2}
 --- !u!95 &990207972
 Animator:
   serializedVersion: 3
@@ -4302,6 +4304,48 @@ MonoBehaviour:
   gameManager: {fileID: 182578656}
   player: {fileID: 990207965}
   Explosion: {fileID: 1368269214474140, guid: f8e3f56eab60648a3bb50cd4139a4ab0, type: 2}
+--- !u!1001 &1853384876
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759122361405700, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3ef047222641d42689ede3a6f3b26b5f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1864896709 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4159516001862254, guid: e93aba20f2c324ce790796e8b30ec30d,

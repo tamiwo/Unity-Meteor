@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour {
 	private AudioSource sound01;				//SE音１
 	private AudioSource sound02;				//SE音２
     public GameObject jumpParticle;             //ジャンプエフェクト
+    public GameObject landingParticle;             //着地エフェクト
 
     private enum State {
         Standing,
@@ -175,7 +176,14 @@ public class PlayerManager : MonoBehaviour {
 			sound02.PlayOneShot(sound02.clip);
             //UrtraAttackShape無効化
             UltraAttackShape.GetComponent<UltraAttackShapeManager>().UltraAttackShapeSetActive(false);
-
+            //パーティクル生成
+            Vector3 pos = col.contacts[0].point;
+            GameObject particleR = (GameObject)Instantiate(landingParticle);
+            particleR.transform.SetPositionAndRotation(pos, transform.rotation);
+            GameObject particleL = (GameObject)Instantiate(landingParticle);
+            particleL.transform.SetPositionAndRotation(pos, transform.rotation);
+            var scale = particleL.transform.localScale;
+            particleL.transform.localScale = new Vector3(scale.x * -1, scale.y, scale.z);
         }
     }
 
