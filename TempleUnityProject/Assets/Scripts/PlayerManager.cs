@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour {
 	private Animator animator;					//アニメーター
 	private AudioSource sound01;				//SE音１
 	private AudioSource sound02;				//SE音２
+    public GameObject jumpParticle;             //ジャンプエフェクト
 
     private enum State {
         Standing,
@@ -98,6 +99,9 @@ public class PlayerManager : MonoBehaviour {
 			sound01.PlayOneShot(sound01.clip);
             animator.SetBool("isSquat", false);
             setStatus(State.Jumping);
+            //パーティクル生成
+            GameObject particle = (GameObject)Instantiate(jumpParticle);
+            particle.transform.SetPositionAndRotation(transform.position, transform.rotation);
 		}
 	}
 
