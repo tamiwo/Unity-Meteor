@@ -9,7 +9,8 @@ public class AttackShapeManager : MonoBehaviour {
 	private float time = 0f;
     public GameObject ultraGauge;
 
-	public GameObject ParticleAttack;
+    public GameObject ParticleAttack;
+    public GameObject breakParticle;
     public GameObject player;
 
     private PlayerManager playerManager;
@@ -42,7 +43,9 @@ public class AttackShapeManager : MonoBehaviour {
 			//パーティクル生成
 			GameObject particle = (GameObject)Instantiate(ParticleAttack);
             particle.transform.SetPositionAndRotation(transform.position,transform.rotation);
-
+            //パーティクル生成
+            GameObject particle2 = Instantiate(breakParticle);
+            particle2.transform.SetPositionAndRotation(transform.position, transform.rotation);
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
             //プレイヤーの処理
