@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
 	private AudioSource sound02;				//SE音２
     public GameObject jumpParticle;             //ジャンプエフェクト
     public GameObject landingParticle;             //着地エフェクト
+    public GameObject ComboText;                //コンボテキスト
 
     private enum State {
         Standing,
@@ -246,6 +247,11 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void BreakMeteor(){
+        //コンボ表示
+        GameObject combo = (GameObject)Instantiate (ComboText);
+        var pPos = player.transform.position;
+        combo.transform.position = new Vector3( pPos.x + 200, pPos.y );
+
         //落下中なら速度を0にする
         if (rbody.velocity.y < 0){
             rbody.velocity = new Vector2(0.0f, 0.0f);

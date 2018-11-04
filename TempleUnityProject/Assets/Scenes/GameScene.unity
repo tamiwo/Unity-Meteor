@@ -1686,6 +1686,7 @@ MonoBehaviour:
     type: 2}
   landingParticle: {fileID: 1335088138715038, guid: 3ef047222641d42689ede3a6f3b26b5f,
     type: 2}
+  ComboText: {fileID: 1849525027463854, guid: 0282fcce4afb9420891e2070131e382a, type: 2}
 --- !u!95 &990207972
 Animator:
   serializedVersion: 3
