@@ -35,10 +35,8 @@ public class OrbManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(rbody.gravityScale);
         float deltaVelocity = -9.81f * rbody.gravityScale * Time.deltaTime;
         rbody.velocity = new Vector2(0,deltaVelocity + rbody.velocity.y);
-        //Debug.Log(rbody.velocity);
 	}
 
     //オーブ取得
