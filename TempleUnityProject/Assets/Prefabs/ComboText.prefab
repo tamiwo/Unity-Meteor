@@ -129,8 +129,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1661028557
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!23 &23422877653724272
 MeshRenderer:
@@ -164,8 +164,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1661028557
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!33 &33964462344206174
 MeshFilter:
@@ -208,7 +208,7 @@ Animator:
   m_GameObject: {fileID: 1849525027463854}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfe79c786b350482ab8dc79e0a974c2a, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
