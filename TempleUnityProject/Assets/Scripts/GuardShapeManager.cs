@@ -13,6 +13,8 @@ public class GuardShapeManager : MonoBehaviour
     public GameObject player;
     public float playerForce = 100;
     private Rigidbody2D playerRbody;
+    public GameObject comboManagerObj;
+    private ComboManeger comboManeger;
 
     // Use this for initialization
     void Start()
@@ -23,6 +25,7 @@ public class GuardShapeManager : MonoBehaviour
 		AudioSource[] audioSources = GetComponents<AudioSource>();
 		sound01 = GetComponent<AudioSource>();
         playerRbody = player.GetComponent<Rigidbody2D>();
+        comboManeger = comboManagerObj.GetComponent<ComboManeger>();
     }
 
     // Update is called once per frame
@@ -69,6 +72,8 @@ public class GuardShapeManager : MonoBehaviour
             this.gameObject.SetActive(false);
             playerRbody.velocity = new Vector2(0,0);
             playerRbody.AddForce(new Vector2(0, -playerForce));
+            //コンボリセッt
+            comboManeger.Reset();
         }
     }
 }

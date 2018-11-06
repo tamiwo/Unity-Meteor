@@ -5,9 +5,13 @@ using UnityEngine;
 public class UltraAttackShapeManager : MonoBehaviour
 {
 
+    public GameObject comboManagerObj;
+    private ComboManeger comboManeger;
+
     // Use this for initialization
     void Start()
     {
+        comboManeger = comboManagerObj.GetComponent<ComboManeger>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,8 @@ public class UltraAttackShapeManager : MonoBehaviour
         {
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
+            //コンボ増加
+            comboManeger.addCombo();
         }
     }
 }

@@ -450,11 +450,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627873399031324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1092a0f287bb42318c3f8ce0d27de53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboManager: {fileID: 0}
 --- !u!114 &114326483552486962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,6 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1092a0f287bb42318c3f8ce0d27de53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboManager: {fileID: 1234146652934716, guid: da4d117f8b5174b60a23d96a9fdd1f2b,
+    type: 2}
 --- !u!222 &222152798139570684
 CanvasRenderer:
   m_ObjectHideFlags: 1

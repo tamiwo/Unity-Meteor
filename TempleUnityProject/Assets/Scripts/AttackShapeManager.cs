@@ -12,12 +12,15 @@ public class AttackShapeManager : MonoBehaviour {
     public GameObject ParticleAttack;
     public GameObject breakParticle;
     public GameObject player;
+    public GameObject comboManagerObj;
+    private ComboManeger comboManeger;
 
     private PlayerManager playerManager;
 
 	// Use this for initialization
 	void Start () {
         playerManager = player.GetComponent<PlayerManager>();
+        comboManeger = comboManagerObj.GetComponent<ComboManeger>();
 	}
 
 	// Update is called once per frame
@@ -54,6 +57,8 @@ public class AttackShapeManager : MonoBehaviour {
             this.gameObject.SetActive(false);
             //ultraGauge増加
             ultraGauge.GetComponent<UltraBarManager>().AddPower(1);
+            //コンボ増加
+            comboManeger.addCombo();
         }
     }
 }
