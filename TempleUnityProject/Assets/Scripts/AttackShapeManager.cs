@@ -51,14 +51,14 @@ public class AttackShapeManager : MonoBehaviour {
             particle2.transform.SetPositionAndRotation(transform.position, transform.rotation);
             //隕石破壊
             obj.GetComponent<OrbManager>().Damage(1);
+            //コンボ増加
+            comboManeger.addCombo();
             //プレイヤーの処理
             playerManager.BreakMeteor();
             //AttackShape無効化
             this.gameObject.SetActive(false);
             //ultraGauge増加
             ultraGauge.GetComponent<UltraBarManager>().AddPower(1);
-            //コンボ増加
-            comboManeger.addCombo();
         }
     }
 }

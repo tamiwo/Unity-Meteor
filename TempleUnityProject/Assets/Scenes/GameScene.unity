@@ -957,6 +957,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &612289478 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1234146652934716, guid: da4d117f8b5174b60a23d96a9fdd1f2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1533599118}
 --- !u!1 &621172981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,6 +1698,7 @@ MonoBehaviour:
   landingParticle: {fileID: 1335088138715038, guid: 3ef047222641d42689ede3a6f3b26b5f,
     type: 2}
   ComboText: {fileID: 1849525027463854, guid: 0282fcce4afb9420891e2070131e382a, type: 2}
+  comboManagerObj: {fileID: 612289478}
 --- !u!95 &990207972
 Animator:
   serializedVersion: 3
@@ -1973,8 +1979,7 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 990207965}
   playerForce: 200000
-  comboManagerObj: {fileID: 1234146652934716, guid: da4d117f8b5174b60a23d96a9fdd1f2b,
-    type: 2}
+  comboManagerObj: {fileID: 612289478}
 --- !u!1 &1122636940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,8 +2252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367fc062fc178ae41bef97ad66c4519d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboManagerObj: {fileID: 1234146652934716, guid: da4d117f8b5174b60a23d96a9fdd1f2b,
-    type: 2}
+  comboManagerObj: {fileID: 612289478}
 --- !u!61 &1204725395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2544,8 +2548,7 @@ MonoBehaviour:
   breakParticle: {fileID: 1990674529716406, guid: 31031da00520b4e2288c10fbe3664eca,
     type: 2}
   player: {fileID: 990207965}
-  comboManagerObj: {fileID: 1234146652934716, guid: da4d117f8b5174b60a23d96a9fdd1f2b,
-    type: 2}
+  comboManagerObj: {fileID: 612289478}
 --- !u!61 &1300075378
 BoxCollider2D:
   m_ObjectHideFlags: 0

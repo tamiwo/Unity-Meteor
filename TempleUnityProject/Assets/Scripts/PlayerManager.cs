@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour {
     public GameObject jumpParticle;             //ジャンプエフェクト
     public GameObject landingParticle;             //着地エフェクト
     public GameObject ComboText;                //コンボテキスト
+    public GameObject comboManagerObj;
+    private ComboManeger comboManeger;
 
     private enum State {
         Standing,
@@ -36,6 +38,7 @@ public class PlayerManager : MonoBehaviour {
 		AudioSource[] audioSources = GetComponents<AudioSource>();
 		sound01 = audioSources[0];
 		sound02 = audioSources[1];
+        comboManeger = comboManagerObj.GetComponent<ComboManeger>();
 	}
 	
 	// Update is called once per frame
@@ -248,9 +251,13 @@ public class PlayerManager : MonoBehaviour {
 
     public void BreakMeteor(){
         //コンボ表示
-        GameObject combo = (GameObject)Instantiate (ComboText);
+        GameObject comboText = (GameObject)Instantiate (ComboText);
+        //表示位置
         var pPos = player.transform.position;
-        combo.transform.position = new Vector3( pPos.x + 200, pPos.y );
+        comboText.transform.position = new Vector3(pPos.x + 200, pPos.y);
+        //値設定
+        int combo = comboManeger.getCombo();
+        comboText.GetComponent<ComboTextManager>().SetCombo(combo);
 
         //落下中なら速度を0にする
         if (rbody.velocity.y < 0){
