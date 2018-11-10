@@ -205,8 +205,11 @@ public class PlayerManager : MonoBehaviour {
         {
             //ジャンプ可
             canJump = false;
-            // レイヤー切り替え
-            player.layer = LayerMask.NameToLayer("JumpingPlayer");
+            // 必殺技時は隕石と衝突しないままにする
+            if ( UltraAttackShape.gameObject.active == false ){
+                // レイヤー切り替え
+                player.layer = LayerMask.NameToLayer("JumpingPlayer");
+            }
         }
     }
 
