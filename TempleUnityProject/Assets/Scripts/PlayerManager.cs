@@ -131,6 +131,8 @@ public class PlayerManager : MonoBehaviour {
     public void UltraAttack()
     {
         Debug.Log("Ultra Attack");
+        //同じようにジャンプするためプレイヤーの速度0にする
+        rbody.velocity = new Vector2(0.0f, 0.0f);
         //ジャンプ
         canJump = true;
         Jump();
